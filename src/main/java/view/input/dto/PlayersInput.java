@@ -1,5 +1,8 @@
 package view.input.dto;
 
+import domain.BlackjackPlayer;
+import domain.BlackjackPlayerName;
+import domain.BlackjackPlayers;
 import util.CollectionUtils;
 import util.StringUtils;
 
@@ -24,5 +27,14 @@ public class PlayersInput {
         if (CollectionUtils.isEmpty(playerNames)) {
             throw new IllegalArgumentException("최소 1명의 플레이어가 있어야 합니다.");
         }
+    }
+
+    public BlackjackPlayers toBlackjackPlayers() {
+        return new BlackjackPlayers(
+                this.playerNames.stream()
+                        .map(BlackjackPlayerName::new)
+                        .map(BlackjackPlayer::new)
+                        .collect(Collectors.toList())
+        );
     }
 }
