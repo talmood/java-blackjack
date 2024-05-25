@@ -14,13 +14,17 @@ public enum CardNumber {
 	QUEEN(10),
 	KING(10);
 
-	private final int number;
+	private final int score;
 
-	CardNumber(final int number) {
-		this.number = number;
+	CardNumber(final int score) {
+		this.score = score;
 	}
 
-	public int getNumber() {
-		return this.number;
+	public int getScore() {
+		return this.score;
+	}
+
+	public boolean isAce() {
+		return this == ACE;
 	}
 }
