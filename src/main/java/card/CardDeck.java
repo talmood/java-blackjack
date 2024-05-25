@@ -12,7 +12,7 @@ public class CardDeck {
 	public CardDeck() {
 		for (CardEmblem emblem : CARD_EMBLEMS) {
 			cards.addAll(CARD_NUMBER.stream()
-				.map(cardNumber -> Card.of(emblem, cardNumber))
+				.map(cardNumber -> new Card(emblem, cardNumber))
 				.toList());
 		}
 	}
