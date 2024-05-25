@@ -1,8 +1,10 @@
 package view.input;
 
+import view.input.dto.PlayersInput;
+
 public interface InputView {
 
-    void viewPlayers();
+    PlayersInput viewPlayers();
 
     void viewInitCards();
 
