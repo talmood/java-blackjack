@@ -1,9 +1,11 @@
 package Controller;
 
-import domain.BlackjackPlayers;
+import domain.BlackjackPlayerName;
 import view.input.InputView;
 import view.input.dto.PlayersInput;
 import view.output.OutputView;
+
+import java.util.List;
 
 public class BlackjackSimulator {
 
@@ -17,7 +19,8 @@ public class BlackjackSimulator {
 
     public void run() {
         PlayersInput playersInput = inputView.viewPlayers();
-        BlackjackPlayers blackjackPlayers = playersInput.toBlackjackPlayers();
-        
+        List<BlackjackPlayerName> blackjackPlayerNames = playersInput.toBlackjackPlayerNames();
+
+
     }
 }

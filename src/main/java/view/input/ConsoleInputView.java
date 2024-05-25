@@ -17,15 +17,11 @@ public class ConsoleInputView implements InputView {
 
     @Override
     public PlayersInput viewPlayers() {
+
         outputWriter.writeLine(PLAYERS_NAVIGATION);
         String input = inputReader.readLine();
 
         return PlayersInput.from(input);
-    }
-
-    @Override
-    public void viewInitCards() {
-
     }
 
     @Override

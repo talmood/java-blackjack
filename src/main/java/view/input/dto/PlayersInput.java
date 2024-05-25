@@ -1,8 +1,6 @@
 package view.input.dto;
 
-import domain.BlackjackPlayer;
 import domain.BlackjackPlayerName;
-import domain.BlackjackPlayers;
 import util.CollectionUtils;
 import util.StringUtils;
 
@@ -29,12 +27,9 @@ public class PlayersInput {
         }
     }
 
-    public BlackjackPlayers toBlackjackPlayers() {
-        return new BlackjackPlayers(
-                this.playerNames.stream()
-                        .map(BlackjackPlayerName::new)
-                        .map(BlackjackPlayer::new)
-                        .collect(Collectors.toList())
-        );
+    public List<BlackjackPlayerName> toBlackjackPlayerNames() {
+        return this.playerNames.stream()
+                .map(BlackjackPlayerName::new)
+                .collect(Collectors.toList());
     }
 }
