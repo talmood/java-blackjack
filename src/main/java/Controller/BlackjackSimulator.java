@@ -1,9 +1,10 @@
 package Controller;
 
-import domain.BlackjackPlayerName;
+import domain.*;
 import view.input.InputView;
 import view.input.dto.PlayersInput;
 import view.output.OutputView;
+import view.output.dto.InitialHandOutOutput;
 
 import java.util.List;
 
@@ -20,6 +21,15 @@ public class BlackjackSimulator {
     public void run() {
         PlayersInput playersInput = inputView.viewPlayers();
         List<BlackjackPlayerName> blackjackPlayerNames = playersInput.toBlackjackPlayerNames();
+        BlackjackPlayers blackjackPlayers = BlackjackPlayers.fromNamesWithEmptyCards(blackjackPlayerNames);
+        BlackjackDealer blackjackDealer = BlackjackDealer.createWithEmptyCards();
+        TrumpCardDeck trumpCardDeck = new TrumpCardDeck();
+
+        BlackjackGame blackjackGame = new BlackjackGame(BlackjackParticipants.of(blackjackDealer, blackjackPlayers), trumpCardDeck);
+        HandOutCount handOutCount = new HandOutCount(2);
+        BlackjackGame initialHandOutGame = blackjackGame.initialHandOut(handOutCount);
+        InitialHandOutOutput initialHandOutOutput = InitialHandOutOutput.of(handOutCount, initialHandOutGame.getBlackjackParticipants());
+        outputView.viewInitialHandOut(initialHandOutOutput);
 
 
     }

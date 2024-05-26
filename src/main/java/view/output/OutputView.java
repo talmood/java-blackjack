@@ -1,8 +1,10 @@
 package view.output;
 
+import view.output.dto.InitialHandOutOutput;
+
 public interface OutputView {
 
-    void viewInitialParticipantsCards();
+    void viewInitialHandOut(InitialHandOutOutput initialHandOutOutput);
 
     void viewParticipantsCards();
 

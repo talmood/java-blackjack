@@ -1,5 +1,7 @@
 package domain;
 
+import domain.validator.TrumpCardValidator;
+
 import java.util.Objects;
 
 public class TrumpCard {
@@ -9,10 +11,15 @@ public class TrumpCard {
     private final TrumpCardSuit trumpCardSuit;
 
     public TrumpCard(TrumpCardRank trumpCardRank, TrumpCardSuit trumpCardSuit) {
+        TrumpCardValidator.validate(trumpCardRank, trumpCardSuit);
         this.trumpCardRank = trumpCardRank;
         this.trumpCardSuit = trumpCardSuit;
     }
 
+    public String fetchKoreanName() {
+        return this.trumpCardRank.getExpression() + this.trumpCardSuit.getKoreanName();
+    }
+    
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

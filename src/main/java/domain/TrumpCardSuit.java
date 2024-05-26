@@ -12,4 +12,8 @@ public enum TrumpCardSuit {
     TrumpCardSuit(String koreanName) {
         this.koreanName = koreanName;
     }
+
+    public String getKoreanName() {
+        return koreanName;
+    }
 }

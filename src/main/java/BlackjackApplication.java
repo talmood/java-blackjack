@@ -14,7 +14,7 @@ public class BlackjackApplication {
         InputReader inputReader = new ConsoleInputReader();
         OutputWriter outputWriter = new ConsoleOutputWriter();
         InputView inputView = new ConsoleInputView(inputReader, outputWriter);
-        OutputView outputView = new ConsoleOutputView();
+        OutputView outputView = new ConsoleOutputView(outputWriter);
 
         BlackjackSimulator blackjackSimulator = new BlackjackSimulator(inputView, outputView);
         blackjackSimulator.run();

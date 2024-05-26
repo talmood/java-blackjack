@@ -17,7 +17,6 @@ public class ConsoleInputView implements InputView {
 
     @Override
     public PlayersInput viewPlayers() {
-
         outputWriter.writeLine(PLAYERS_NAVIGATION);
         String input = inputReader.readLine();
 
