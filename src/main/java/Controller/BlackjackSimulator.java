@@ -4,6 +4,8 @@ import domain.*;
 import view.input.InputView;
 import view.input.dto.PlayersInput;
 import view.output.OutputView;
+import view.output.dto.BlackjackResultOutputs;
+import view.output.dto.FinalWinOrLoseOutput;
 import view.output.dto.InitialHandOutOutput;
 
 import java.util.List;
@@ -27,10 +29,18 @@ public class BlackjackSimulator {
 
         BlackjackGame blackjackGame = new BlackjackGame(BlackjackParticipants.of(blackjackDealer, blackjackPlayers), trumpCardDeck);
         HandOutCount handOutCount = new HandOutCount(2);
-        BlackjackGame initialHandOutGame = blackjackGame.initialHandOut(handOutCount);
+        TrumpCardHandOuter trumpCardHandOuter = new TrumpCardHandOuter();
+
+        BlackjackGame initialHandOutGame = blackjackGame.initialHandOut(trumpCardHandOuter, handOutCount);
         InitialHandOutOutput initialHandOutOutput = InitialHandOutOutput.of(handOutCount, initialHandOutGame.getBlackjackParticipants());
         outputView.viewInitialHandOut(initialHandOutOutput);
 
+        BlackjackGame handOutAllPlayersGame = initialHandOutGame.handOutAllPlayers(trumpCardHandOuter, inputView, outputView);
+        BlackjackGame handOutDealerGame = handOutAllPlayersGame.handOutDealer(trumpCardHandOuter, outputView);
+        outputView.viewBlackjackResult(BlackjackResultOutputs.from(handOutDealerGame.getBlackjackParticipants()));
+
+        FinalWinOrLose finalWinOrLose = handOutDealerGame.decideWinOrLose();
+        outputView.viewFinalWinOrLose(FinalWinOrLoseOutput.from(finalWinOrLose));
 
     }
 }

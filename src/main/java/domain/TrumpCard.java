@@ -19,7 +19,15 @@ public class TrumpCard {
     public String fetchKoreanName() {
         return this.trumpCardRank.getExpression() + this.trumpCardSuit.getKoreanName();
     }
-    
+
+    public BlackjackPoint fetchMaxBlackjackPoint() {
+        return new BlackjackPoint(trumpCardRank.fetchMaxValue());
+    }
+
+    public BlackjackPoint fetchMinBlackjackPoint() {
+        return new BlackjackPoint(trumpCardRank.fetchMinValue());
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

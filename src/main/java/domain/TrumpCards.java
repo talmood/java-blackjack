@@ -17,6 +17,10 @@ public class TrumpCards {
         this.trumpCards = trumpCards;
     }
 
+    public TrumpCards(TrumpCards trumpCards) {
+        this.trumpCards = trumpCards.getCards();
+    }
+
     public static TrumpCards createAll() {
         return new TrumpCards(
                 Arrays.stream(TrumpCardRank.values())
@@ -61,6 +65,18 @@ public class TrumpCards {
         trumpCards.add(trumpCard);
 
         return new TrumpCards(Collections.unmodifiableList(trumpCards));
+    }
+
+    public BlackjackPoint totalMaxBlackjackPoint() {
+        return this.trumpCards.stream()
+                .map(TrumpCard::fetchMaxBlackjackPoint)
+                .reduce(new BlackjackPoint(0), BlackjackPoint::sum);
+    }
+
+    public BlackjackPoint totalMinBlackjackPoint() {
+        return this.trumpCards.stream()
+                .map(TrumpCard::fetchMinBlackjackPoint)
+                .reduce(new BlackjackPoint(0), BlackjackPoint::sum);
     }
 
     public List<TrumpCard> getCards() {

@@ -5,7 +5,6 @@ import domain.validator.BlackjackParticipantsValidator;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
-import java.util.stream.IntStream;
 
 public class BlackjackParticipants {
 
@@ -26,28 +25,28 @@ public class BlackjackParticipants {
         );
     }
 
-    public BlackjackParticipants handOutOneCardForAll(TrumpCards trumpCards) {
-        this.validateParticipantsAndTrumpCardSizeEqual(trumpCards);
-        List<TrumpCard> cards = trumpCards.getCards();
-
-        return new BlackjackParticipants(
-                IntStream.range(0, this.size())
-                        .mapToObj(index -> this.blackjackParticipants.get(index).receiveCard(cards.get(index)))
-                        .collect(Collectors.toList())
-        );
-    }
-
-    private void validateParticipantsAndTrumpCardSizeEqual(TrumpCards trumpCards) {
-        if (this.size() != trumpCards.size()) {
-            throw new IllegalArgumentException("카드는 무조건 한장씩 나눠줘야 합니다.");
-        }
-    }
-
     public int size() {
         return this.blackjackParticipants.size();
     }
 
     public List<BlackjackParticipant> getBlackjackParticipants() {
         return List.copyOf(this.blackjackParticipants);
+    }
+
+    public BlackjackDealer findDealer() {
+        return this.blackjackParticipants.stream()
+                .filter(BlackjackParticipant::isDealer)
+                .findAny()
+                .map(BlackjackDealer.class::cast)
+                .orElseThrow(() -> new IllegalStateException("참가자에 딜러가 존재하지 않습니다."));
+    }
+
+    public BlackjackPlayers findPlayers() {
+        return new BlackjackPlayers(
+                this.blackjackParticipants.stream()
+                        .filter(BlackjackParticipant::isPlayer)
+                        .map(BlackjackPlayer.class::cast)
+                        .collect(Collectors.toList())
+        );
     }
 }

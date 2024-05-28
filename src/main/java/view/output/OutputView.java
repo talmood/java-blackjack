@@ -1,12 +1,16 @@
 package view.output;
 
-import view.output.dto.InitialHandOutOutput;
+import view.output.dto.*;
 
 public interface OutputView {
 
     void viewInitialHandOut(InitialHandOutOutput initialHandOutOutput);
 
-    void viewParticipantsCards();
+    void viewHandOutPlayer(HandOutPlayerOutput handOutPlayerOutput);
 
-    void viewWinOrLose();
+    void viewHandOutDealer(HandOutDealerOutput handOutDealerOutput);
+
+    void viewBlackjackResult(BlackjackResultOutputs blackjackResultOutput);
+
+    void viewFinalWinOrLose(FinalWinOrLoseOutput finalWinOrLoseOutput);
 }

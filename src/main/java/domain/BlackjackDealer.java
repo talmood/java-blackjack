@@ -24,4 +24,22 @@ public class BlackjackDealer implements BlackjackParticipant {
     public List<String> fetchKoreanCardNames() {
         return this.trumpCards.fetchKoreanNames();
     }
+
+    @Override
+    public boolean isDealer() {
+        return true;
+    }
+
+    @Override
+    public boolean isPlayer() {
+        return false;
+    }
+
+    @Override
+    public BlackjackPoint calculatePoint() {
+        BlackjackPoint minBlackjackPoint = trumpCards.totalMinBlackjackPoint();
+        BlackjackPoint maxBlackjackPoint = trumpCards.totalMaxBlackjackPoint();
+
+        return minBlackjackPoint.fetchCloserPointThreshold(maxBlackjackPoint);
+    }
 }

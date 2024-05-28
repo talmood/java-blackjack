@@ -5,7 +5,7 @@ public class HandOutCount {
     private final int handOutCount;
 
     public HandOutCount(int handOutCount) {
-
+        this.validateGreaterThanZero(handOutCount);
         this.handOutCount = handOutCount;
     }
 
