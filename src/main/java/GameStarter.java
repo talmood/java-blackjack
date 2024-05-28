@@ -3,24 +3,30 @@ import java.util.List;
 
 public class GameStarter {
 
+    static final int DEALING_CARD_NUMBERS = 2;
     public List<String> getPlayersNames(InputView inputView, InputValidator inputValidator) {
         String unVerifiedPlayerNames = inputView.getPlayerNames();
         return inputValidator.validatePlayerNames(unVerifiedPlayerNames);
     }
-    public void dealFirstTurnTwoCards(ResultView resultView, List<String> playerNames) {
-        int dealingCardNumbers = 2;
-        resultView.printFirstDeal(playerNames);
+    public Dealer pickDealerCards(ResultView resultView) {
         Card card = new Card();
-        List<Card> dealerCards = card.generateCards(dealingCardNumbers);
+        List<Card> dealerCards = card.generateCards(DEALING_CARD_NUMBERS);
         Dealer dealer = new Dealer(dealerCards);
-        List<Player> players = new ArrayList<>();
+        resultView.printInitialDealerCards(dealer);
 
+        return dealer;
+    }
+
+    public List<Player> pickPlayerCards(List<String> playerNames, ResultView resultView) {
+        Card card = new Card();
+        List<Player> players = new ArrayList<>();
         for (String playerName : playerNames) {
-            Player player = new Player(playerName, card.generateCards(dealingCardNumbers));
+            Player player = new Player(playerName, card.generateCards(DEALING_CARD_NUMBERS));
             players.add(player);
         }
-        resultView.printInitialDealerCards(dealer);
         resultView.printInitialPlayerCards(players);
+
+        return players;
     }
 
 }

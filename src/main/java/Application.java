@@ -10,7 +10,10 @@ public class Application {
 
         GameStarter gameStarter = new GameStarter();
         List<String> playerNames = gameStarter.getPlayersNames(inputView, inputValidator);
-        gameStarter.dealFirstTurnTwoCards(resultView,playerNames);
+        resultView.printFirstDeal(playerNames);
+        Dealer dealer = gameStarter.pickDealerCards(resultView);
+        List<Player> players = gameStarter.pickPlayerCards(playerNames, resultView);
+
 
     }
 }
