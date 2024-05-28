@@ -13,13 +13,18 @@ public class ResultView {
 
     public void printInitialPlayerCards(List<Player> players) {
         for (Player player : players) {
-            String message = player.name + " 카드: ";
-            List<Card> cards = player.cards;
-            String cardsToString = cards.stream()
-                    .map(card -> card.number + card.suits.title)
-                    .collect(Collectors.joining(", "));
-            message += cardsToString;
-            System.out.println(message);
+            printPlayerCards(player);
         }
     }
+
+    public void printPlayerCards(Player player) {
+        String message = player.name + " 카드: ";
+        List<Card> cards = player.cards;
+        String cardsToString = cards.stream()
+                .map(card -> card.number + card.suits.title)
+                .collect(Collectors.joining(", "));
+        message += cardsToString;
+        System.out.println(message);
+    }
+
 }

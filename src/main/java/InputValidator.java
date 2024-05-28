@@ -15,4 +15,14 @@ public class InputValidator {
         }
         return List.of(playerNamesString);
     }
+
+    public boolean validateAnswerForOneMoreCard(String acceptInput) {
+        if (acceptInput.equals("y")) {
+            return true;
+        }
+        if (acceptInput.equals("n")) {
+            return false;
+        }
+        throw new IllegalArgumentException("y나 n으로 입력하세요");
+    }
 }

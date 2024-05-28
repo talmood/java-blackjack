@@ -4,10 +4,10 @@ import java.util.List;
 public class GameStarter {
 
     static final int DEALING_CARD_NUMBERS = 2;
-    public List<String> getPlayersNames(InputView inputView, InputValidator inputValidator) {
-        String unVerifiedPlayerNames = inputView.getPlayerNames();
-        return inputValidator.validatePlayerNames(unVerifiedPlayerNames);
+    public List<String> getPlayersNames(InputView inputView) {
+        return inputView.getPlayerNames();
     }
+
     public Dealer pickDealerCards(ResultView resultView) {
         Card card = new Card();
         List<Card> dealerCards = card.generateCards(DEALING_CARD_NUMBERS);
