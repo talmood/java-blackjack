@@ -1,4 +1,4 @@
-package participant;
+package participant.model;
 
 import card.Card;
 
