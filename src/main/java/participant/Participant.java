@@ -32,10 +32,10 @@ public class Participant {
 	}
 
 	private int fetchCardScore(final int currentScore, final Card card) {
-		if (card.number().isAce()) {
+		if (card.rank().isAce()) {
 			return fetchAceScore(currentScore);
 		}
-		return card.number().getScore();
+		return card.rank().getScore();
 	}
 
 	private int fetchAceScore(final int currentScore) {

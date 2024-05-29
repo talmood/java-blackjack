@@ -1,6 +1,6 @@
 package card;
 
-public enum CardEmblem {
+public enum CardSuit {
 	CLOVER("클로버"),
 	HEART("하트"),
 	SPADE("스페이드"),
@@ -8,7 +8,7 @@ public enum CardEmblem {
 
 	private final String name;
 
-	CardEmblem(final String name) {
+	CardSuit(final String name) {
 		this.name = name;
 	}
 

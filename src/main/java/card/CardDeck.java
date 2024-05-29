@@ -4,15 +4,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CardDeck {
-	private static final List<CardEmblem> CARD_EMBLEMS = List.of(CardEmblem.CLOVER, CardEmblem.HEART, CardEmblem.SPADE, CardEmblem.DIAMOND);
-	private static final List<CardNumber> CARD_NUMBER = List.of(CardNumber.ACE, CardNumber.TWO, CardNumber.THREE, CardNumber.FOUR, CardNumber.FIVE, CardNumber.SIX, CardNumber.SEVEN, CardNumber.EIGHT, CardNumber.NINE, CardNumber.JACK, CardNumber.QUEEN, CardNumber.KING);
+	private static final List<CardSuit> CARD_EMBLEMS = List.of(CardSuit.CLOVER, CardSuit.HEART, CardSuit.SPADE, CardSuit.DIAMOND);
+	private static final List<CardRank> CARD_NUMBER = List.of(CardRank.ACE, CardRank.TWO, CardRank.THREE, CardRank.FOUR, CardRank.FIVE, CardRank.SIX, CardRank.SEVEN, CardRank.EIGHT, CardRank.NINE, CardRank.JACK, CardRank.QUEEN, CardRank.KING);
 
 	private final List<Card> cards = new ArrayList<>();
 
 	public CardDeck() {
-		for (CardEmblem emblem : CARD_EMBLEMS) {
+		for (CardSuit emblem : CARD_EMBLEMS) {
 			cards.addAll(CARD_NUMBER.stream()
-				.map(cardNumber -> new Card(emblem, cardNumber))
+				.map(cardRank -> new Card(emblem, cardRank))
 				.toList());
 		}
 	}
