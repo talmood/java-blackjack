@@ -1,16 +1,27 @@
 package participant.controller;
 
 import participant.validator.ParticipantInputValidator;
+import utils.SplitUtils;
+
+import java.util.Arrays;
+import java.util.List;
 
 public class ParticipantRequest {
-	private final String participant;
+	private static final String SPLIT_DELIMITER = ",";
 
-	private ParticipantRequest(final String participant) {
-		this.participant = participant;
+	private final List<String> participantNames;
+
+	private ParticipantRequest(final List<String> participantNames) {
+		this.participantNames = participantNames;
 	}
 
-	public static ParticipantRequest from(final String participant) {
-		ParticipantInputValidator.validate(participant);
-		return new ParticipantRequest(participant);
+	public static ParticipantRequest from(final String participantInput) {
+		ParticipantInputValidator.validate(participantInput, SPLIT_DELIMITER);
+		final String[] splitInput = SplitUtils.split(participantInput, SPLIT_DELIMITER);
+		return new ParticipantRequest(Arrays.asList(splitInput));
+	}
+
+	public List<String> getParticipantNames() {
+		return List.copyOf(participantNames);
 	}
 }

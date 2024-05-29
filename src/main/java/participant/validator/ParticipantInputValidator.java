@@ -1,11 +1,12 @@
 package participant.validator;
 
-public class ParticipantInputValidator {
-	private static final String SPLIT_DELIMETER = ",";
+import utils.SplitUtils;
 
-	public static void validate(final String participant) {
+public class ParticipantInputValidator {
+
+	public static void validate(final String participant, final String delimiter) {
 		try {
-			participant.split(SPLIT_DELIMETER);
+			SplitUtils.split(participant, delimiter);
 		} catch (Exception e) {
 			throw new IllegalArgumentException("게임 참여할 사람의 이름을 입력할 때 문제가 발생했습니다.");
 		}
