@@ -16,7 +16,7 @@ public class CardDeck {
 				.toList());
 		}
 		Collections.shuffle(cardList);
-		cards = new ArrayDeque<>(cardList);
+		this.cards = new ArrayDeque<>(cardList);
 	}
 
 	public Card pickCard() {
