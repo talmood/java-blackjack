@@ -2,6 +2,7 @@ package game.controller;
 
 import card.CardDeck;
 import card.controller.DrawCardRequest;
+import game.domain.GameJudgement;
 import participant.controller.ParticipantRequest;
 import participant.domain.ParticipantRegister;
 import participant.model.Participant;
@@ -14,7 +15,6 @@ import java.util.stream.IntStream;
 public class GameController {
 	private static final int FIRST_CARD_COUNT = 2;
 	private static final int DEALER_DRAW_CARD_SCORE = 16;
-	private static final String DEALER = "딜러";
 
 	private final InputView inputView;
 	private final OutputView outputView;
@@ -31,12 +31,13 @@ public class GameController {
 		firstDrawCards(participants);
 		drawCardsWithoutDealer(participants);
 		drawCardDealer(participants.stream()
-			.filter(participant -> DEALER.equals(participant.getName()))
+			.filter(Participant::isDealer)
 			.findAny()
 			.orElseThrow(() -> new IllegalArgumentException("게임에 딜러가 존재하지 않습니다."))
 		);
 
 		this.outputView.printFinalResult(participants);
+		this.outputView.printGameJudgement(new GameJudgement(participants));
 	}
 
 	private List<Participant> fetchParticipants() {
@@ -57,7 +58,7 @@ public class GameController {
 
 	private void drawCardsWithoutDealer(List<Participant> participants) {
 		for (Participant participant : participants.stream()
-			.filter(participant -> !DEALER.equals(participant.getName()))
+			.filter(participant -> !participant.isDealer())
 			.toList()) {
 			choiceDrawCard(participant);
 		}

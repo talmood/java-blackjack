@@ -1,6 +1,7 @@
 package view;
 
 import card.Card;
+import game.domain.GameJudgement;
 import participant.model.Participant;
 
 import java.util.List;
@@ -8,11 +9,10 @@ import java.util.stream.Collectors;
 
 public class OutputView {
 	private static final String JOINING_DELIMITER = ", ";
-	private static final String DEALER = "딜러";
 
 	public void firstDistributeCard(final List<Participant> participants) {
 		final String joiningParticipant = participants.stream()
-			.filter(participant -> !DEALER.equals(participant.getName()))
+			.filter(participant -> !participant.isDealer())
 			.map(Participant::getName)
 			.collect(Collectors.joining(JOINING_DELIMITER));
 
@@ -45,6 +45,12 @@ public class OutputView {
 
 			System.out.println("%s 카드: %s - 결과: %d".formatted(participant.getName(), joiningCard, score));
 		}
+	}
+
+	public void printGameJudgement(final GameJudgement gameJudgement) {
+		System.out.println("## 최종 승패");
+		System.out.println(gameJudgement.fetchDealerJudge());
+		gameJudgement.fetchParticipantJudge().forEach(System.out::println);
 	}
 
 }
