@@ -1,6 +1,6 @@
 package view;
 
-import card.Card;
+import card.model.Card;
 import game.domain.GameJudgement;
 import participant.model.Participant;
 

@@ -1,4 +1,4 @@
-package card;
+package card.model;
 
 public enum CardSuit {
 	CLOVER("클로버"),

@@ -1,6 +1,6 @@
 package participant.model;
 
-import card.Card;
+import card.model.Card;
 
 import java.util.ArrayList;
 import java.util.List;

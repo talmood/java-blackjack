@@ -1,6 +1,6 @@
 package game.controller;
 
-import card.CardDeck;
+import card.model.CardDeck;
 import card.controller.DrawCardRequest;
 import game.domain.GameJudgement;
 import participant.controller.ParticipantRequest;

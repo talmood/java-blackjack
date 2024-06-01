@@ -1,4 +1,4 @@
-package card;
+package card.model;
 
 public record Card (
 	CardSuit suit,
