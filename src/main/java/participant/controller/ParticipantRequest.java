@@ -16,8 +16,9 @@ public class ParticipantRequest {
 	}
 
 	public static ParticipantRequest from(final String participantInput) {
-		ParticipantInputValidator.validate(participantInput, SPLIT_DELIMITER);
-		final String[] splitInput = SplitUtils.split(participantInput, SPLIT_DELIMITER);
+		String trimmedInput = participantInput.replaceAll(" ", "");
+		ParticipantInputValidator.validate(trimmedInput, SPLIT_DELIMITER);
+		final String[] splitInput = SplitUtils.split(trimmedInput, SPLIT_DELIMITER);
 		return new ParticipantRequest(Arrays.asList(splitInput));
 	}
 

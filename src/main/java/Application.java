@@ -1,5 +1,10 @@
+import game.controller.GameController;
+import view.InputView;
+import view.OutputView;
+
 public class Application {
 	public static void main(String[] args) {
-		System.out.println("Hello, BlackJack");
+		GameController gameController = new GameController(new InputView(), new OutputView());
+		gameController.run();
 	}
 }

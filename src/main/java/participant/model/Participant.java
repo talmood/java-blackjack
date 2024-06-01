@@ -45,4 +45,12 @@ public class Participant {
 		return ACE_TOP_SCORE;
 	}
 
+	public String getName() {
+		return this.name;
+	}
+
+	public List<Card> getCards() {
+		return List.copyOf(cards);
+	}
+
 }
