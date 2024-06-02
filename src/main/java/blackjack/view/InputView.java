@@ -9,6 +9,7 @@ public class InputView {
     private static final String INPUT_PLAYER_NAME = "게임에 참여할 사람의 이름을 입력하세요. (쉼표 기준으로 분리)";
     private static final String ANSWER_YES = "y";
     private static final String ANSWER_NO = "n";
+    private static final String ADDITIONAL_DRAW_CARD = "%s는 한장의 카드를 더 받겠습니까? (예는 y, 아니오는 n)";
     private static final String NOT_YES_OR_NO = "y 또는 n 중 하나를 입력해주세요.";
 
     public List<String> inputPlayerNames() {
@@ -18,11 +19,12 @@ public class InputView {
         return names;
     }
 
-    public boolean inputMoreCard(final String name) {
-        System.out.printf("%s는 카드를 더 받겠습니까? (예는 y, 아니오는 n)%n", name);
+    public boolean inputMoreCard(final String playerName) {
+        System.out.println(ADDITIONAL_DRAW_CARD.formatted(playerName));
         final String answer = Console.readLine();
         if (!isYesOrNo(answer)) {
-            throw new IllegalArgumentException(NOT_YES_OR_NO);
+            System.out.println(NOT_YES_OR_NO);
+            return inputMoreCard(playerName);
         }
         return ANSWER_YES.equalsIgnoreCase(answer);
     }
