@@ -24,4 +24,8 @@ public class TrumpCardDeck {
                 this.trumpCards.takeOutTopOne()
         );
     }
+
+    public int size() {
+        return this.trumpCards.size();
+    }
 }

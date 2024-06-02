@@ -9,6 +9,8 @@ import view.input.dto.PlayersInput;
 
 import java.util.List;
 
+import static org.junit.jupiter.api.Assertions.assertAll;
+
 class BlackjackInitialHandOuterTest {
 
     @Test
@@ -20,7 +22,12 @@ class BlackjackInitialHandOuterTest {
         BlackjackGame handOutGame = blackjackInitialHandOuter.handOut();
 
         List<BlackjackParticipant> participants = handOutGame.fetchBlackjackParticipants();
-        Assertions.assertThat(participants).map(BlackjackParticipant::fetchCardSize).allMatch(size -> size == 2);
+        TrumpCardDeck trumpCardDeck = handOutGame.getTrumpCardDeck();
+
+        assertAll(
+                () -> Assertions.assertThat(trumpCardDeck.size()).isEqualTo(46),
+                () -> Assertions.assertThat(participants).map(BlackjackParticipant::fetchCardSize).allMatch(size -> size == 2)
+        );
     }
 
     static class FakeInputView implements InputView {
