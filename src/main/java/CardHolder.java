@@ -3,6 +3,15 @@ import java.util.List;
 
 public abstract class CardHolder {
     protected List<Card> cards;
+    protected int totalScore;
+
+    public void setTotalScore(int totalScore) {
+        this.totalScore = totalScore;
+    }
+
+    public int getTotalScore() {
+        return totalScore;
+    }
 
     public CardHolder() {
         this.cards = new ArrayList<>();
@@ -16,8 +25,9 @@ public abstract class CardHolder {
         Card pickedCard = cardSet.takeCard(cardSet);
         setCard(pickedCard);
     }
+
     public void setCard(Card pickedCard) {
-        if(this.cards == null) this.cards = new ArrayList<>();
+        if (this.cards == null) this.cards = new ArrayList<>();
         this.cards.add(pickedCard);
     }
 
