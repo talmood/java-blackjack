@@ -14,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class BlackjackDealerHandOuterTest {
-    
+
     static Stream<Arguments> blackjackDealerParameter() {
         return Stream.of(
                 Arguments.arguments(
@@ -44,10 +44,11 @@ class BlackjackDealerHandOuterTest {
     @ParameterizedTest
     @MethodSource(value = "blackjackDealerParameter")
     void handOut(BlackjackDealer blackjackDealer, int expectCardCount, int expectDeckCount) {
-        BlackjackPlayers blackjackPlayers = new BlackjackPlayers(List.of(
-                new BlackjackPlayer(new BlackjackPlayerName("pobi"), TrumpCards.createEmptyCards()),
-                new BlackjackPlayer(new BlackjackPlayerName("jason"), TrumpCards.createEmptyCards())
-        )
+        BlackjackPlayers blackjackPlayers = new BlackjackPlayers(
+                List.of(
+                        new BlackjackPlayer(new BlackjackPlayerName("pobi"), TrumpCards.createEmptyCards()),
+                        new BlackjackPlayer(new BlackjackPlayerName("jason"), TrumpCards.createEmptyCards())
+                )
         );
 
         BlackjackGame blackjackGame =
