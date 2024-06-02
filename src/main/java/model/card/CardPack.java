@@ -11,7 +11,6 @@ public class CardPack {
         if (Objects.isNull(cards)) {
             throw new IllegalArgumentException("cards must not be null");
         }
-        verifyCardSize(cards);
         this.cards = cards;
     }
 
@@ -28,10 +27,11 @@ public class CardPack {
         return new CardPack(new ArrayDeque<>(cards));
     }
 
-    private void verifyCardSize(final List<Card> cards) {
-        if (cards.size() != CARD_SIZE) {
-            throw new IllegalArgumentException("Card size of CardPack must be %d".formatted(CARD_SIZE));
+    public Card drawOne() {
+        if (this.cards.isEmpty()) {
+            throw new IllegalStateException("No card exist to draw");
         }
+        return this.cards.pollFirst();
     }
 
     public List<Card> getCards() {
