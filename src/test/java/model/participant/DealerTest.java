@@ -1,5 +1,6 @@
 package model.participant;
 
+import model.GameResult;
 import model.card.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -7,6 +8,7 @@ import org.junit.jupiter.api.Test;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertAll;
 
 class DealerTest {
 
@@ -46,6 +48,48 @@ class DealerTest {
 
         // then
         assertThat(actual).isTrue();
+    }
+
+    @DisplayName("""
+            버스트가 아닐 경우 점수가 플레이어 보다 높을 경우 승리이고, 
+            점수가 낮을 경우는 패배, 
+            점수 같을 경우 무승부""")
+    @Test
+    void calculateResult() {
+        // given
+        final List<Card> player1Cards = List.of(
+                new Card(CardSuit.CLUBS, CardValue.TEN),
+                new Card(CardSuit.HEARTS, CardValue.SIX)
+        );
+        final Player player1 = new Player(new CardHand(player1Cards), new PlayerName("player1"));
+
+        final List<Card> player2Cards = List.of(
+                new Card(CardSuit.CLUBS, CardValue.TEN),
+                new Card(CardSuit.HEARTS, CardValue.FOUR)
+        );
+        final Player player2 = new Player(new CardHand(player2Cards), new PlayerName("player2"));
+
+        final List<Card> player3Cards = List.of(
+                new Card(CardSuit.CLUBS, CardValue.TEN),
+                new Card(CardSuit.HEARTS, CardValue.FIVE)
+        );
+        final Player player3 = new Player(new CardHand(player3Cards), new PlayerName("player3"));
+
+        final List<Card> dealerCards = List.of(
+                new Card(CardSuit.CLUBS, CardValue.TEN),
+                new Card(CardSuit.HEARTS, CardValue.FIVE)
+        );
+        final Dealer sut = new Dealer(new CardHand(dealerCards), CardDispenser.defaultOf());
+
+        // when
+        final GameResult actual = sut.calculateResult(List.of(player1, player2, player3));
+
+        // then
+        assertAll(
+                () -> assertThat(actual.wonCount()).isEqualTo(1),
+                () -> assertThat(actual.tieCount()).isEqualTo(1),
+                () -> assertThat(actual.loseCount()).isEqualTo(1)
+        );
     }
 
 }

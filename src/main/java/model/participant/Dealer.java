@@ -1,6 +1,7 @@
 package model.participant;
 
 import model.CardScore;
+import model.GameResult;
 import model.card.Card;
 import model.card.CardDispenser;
 import model.card.CardHand;
@@ -29,8 +30,8 @@ public class Dealer extends Participant implements CardRecipient {
         players.forEach(player -> this.dispenser.dispense(player, 2));
     }
 
-    public void dispenseCard(final Player player) {
-        this.dispenser.dispense(player, 1);
+    public void dispenseCard(final CardRecipient recipient) {
+        this.dispenser.dispense(recipient, 1);
     }
 
     @Override
@@ -44,6 +45,26 @@ public class Dealer extends Participant implements CardRecipient {
             throw new IllegalStateException("Dealer cannot receive Card %s".formatted(card.toString()));
         }
         super.addHand(card);
+    }
+
+    public void dispenseCardItSelf() {
+        dispenseCard(this);
+    }
+
+    public GameResult calculateResult(List<Player> players) {
+        final long wonCount = players.stream()
+                .filter(player -> player.lose(this))
+                .count();
+
+        final long loseCount = players.stream()
+                .filter(player -> player.won(this))
+                .count();
+
+        final long tieCount = players.stream()
+                .filter(player -> player.tie(this))
+                .count();
+
+        return new GameResult(wonCount, loseCount, tieCount);
     }
 
 }

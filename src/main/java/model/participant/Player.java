@@ -1,5 +1,6 @@
 package model.participant;
 
+import model.GameResult;
 import model.card.Card;
 import model.card.CardHand;
 import model.card.CardRecipient;
@@ -27,7 +28,7 @@ public class Player extends Participant implements CardRecipient {
 
     @Override
     public boolean receivable() {
-        return !super.isBust();
+        return !super.busted();
     }
 
     @Override
@@ -40,6 +41,38 @@ public class Player extends Participant implements CardRecipient {
 
     public PlayerName getName() {
         return name;
+    }
+
+    public GameResult calculateResult(final Dealer dealer) {
+        return new GameResult(
+                won(dealer) ? 1 : 0,
+                tie(dealer) ? 1 : 0,
+                lose(dealer) ? 1 : 0
+        );
+    }
+
+    public boolean won(final Dealer dealer) {
+        if (dealer.busted()) {
+            return !super.busted();
+        }
+        return this.calculateScore().exceeds(dealer.calculateScore());
+    }
+
+    public boolean lose(final Dealer dealer) {
+        if (dealer.busted()) {
+            return false;
+        }
+        if (this.busted()) {
+            return true;
+        }
+        return dealer.calculateScore().exceeds(this.calculateScore());
+    }
+
+    public boolean tie(final Dealer dealer) {
+        if (dealer.busted() && this.busted()) {
+            return true;
+        }
+        return dealer.calculateScore().equals(this.calculateScore());
     }
 
 }
