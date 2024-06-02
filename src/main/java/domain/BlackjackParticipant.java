@@ -13,4 +13,6 @@ public interface BlackjackParticipant {
     boolean isPlayer();
 
     BlackjackPoint calculatePoint();
+
+    int fetchCardSize();
 }

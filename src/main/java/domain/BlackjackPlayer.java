@@ -47,6 +47,11 @@ public class BlackjackPlayer implements BlackjackParticipant {
         return minBlackjackPoint.fetchCloserPointThreshold(maxBlackjackPoint);
     }
 
+    @Override
+    public int fetchCardSize() {
+        return this.trumpCards.size();
+    }
+
     public String getPlayerName() {
         return blackjackPlayerName.name();
     }
