@@ -21,7 +21,7 @@ public class BlackjackInitialHandOuter implements BlackjackHandOuter {
     public BlackjackGame handOut() {
         BlackjackGame blackjackGame = new BlackjackGame(this.blackjackGame);
 
-        for (int i = 0; i < handOutCount.getHandOutCount(); i++) {
+        for (int i = 0; i < handOutCount.handOutCount(); i++) {
             blackjackGame = this.handOutAllParticipants(blackjackGame);
         }
 

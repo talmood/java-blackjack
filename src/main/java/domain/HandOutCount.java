@@ -1,16 +1,9 @@
 package domain;
 
-public class HandOutCount {
+public record HandOutCount(int handOutCount) {
 
-    private final int handOutCount;
-
-    public HandOutCount(int handOutCount) {
+    public HandOutCount {
         this.validateGreaterThanZero(handOutCount);
-        this.handOutCount = handOutCount;
-    }
-
-    public int getHandOutCount() {
-        return this.handOutCount;
     }
 
     private void validateGreaterThanZero(int handOutCount) {

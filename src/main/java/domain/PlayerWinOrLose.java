@@ -12,7 +12,7 @@ public class PlayerWinOrLose {
     }
 
     public String fetchPlayerName() {
-        return this.blackjackPlayerName.getName();
+        return this.blackjackPlayerName.name();
     }
 
     public String fetchWinOrLoseKoreanName() {

@@ -27,7 +27,7 @@ public class BlackjackWinOrLoseDecider {
         BlackjackPoint dealerPoint = dealer.calculatePoint();
 
         BlackjackPlayers players = blackjackGame.findPlayers();
-        List<BlackjackPlayer> blackjackPlayers = players.getBlackjackPlayers();
+        List<BlackjackPlayer> blackjackPlayers = players.fetchBlackjackPlayers();
 
         for (BlackjackPlayer blackjackPlayer : blackjackPlayers) {
             BlackjackPoint playerPoint = blackjackPlayer.calculatePoint();

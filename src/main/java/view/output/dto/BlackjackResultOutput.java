@@ -30,7 +30,7 @@ public class BlackjackResultOutput {
             participantName = ((BlackjackPlayer) blackjackParticipant).getPlayerName();
         }
 
-        return new BlackjackResultOutput(participantName, blackjackParticipant.fetchKoreanCardNames(), blackjackParticipant.calculatePoint().getPoint());
+        return new BlackjackResultOutput(participantName, blackjackParticipant.fetchKoreanCardNames(), blackjackParticipant.calculatePoint().point());
     }
 
     public String getParticipantName() {

@@ -22,11 +22,11 @@ public class BlackjackGame {
     }
 
     public List<BlackjackParticipant> fetchBlackjackParticipants() {
-        return this.blackjackParticipants.getBlackjackParticipants();
+        return this.blackjackParticipants.fetchBlackjackParticipants();
     }
 
     public List<BlackjackPlayer> fetchBlackjackPlayers() {
-        return this.blackjackParticipants.findPlayers().getBlackjackPlayers();
+        return this.blackjackParticipants.findPlayers().fetchBlackjackPlayers();
     }
 
     public BlackjackDealer findDealer() {

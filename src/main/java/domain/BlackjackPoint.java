@@ -1,15 +1,11 @@
 package domain;
 
-import java.util.Objects;
-
-public class BlackjackPoint {
+public record BlackjackPoint(int point) {
 
     private static final int RESULT_POINT_THRESHOLD = 21;
-    private final int point;
 
-    public BlackjackPoint(int point) {
+    public BlackjackPoint {
         this.validateLowerThanZero(point);
-        this.point = point;
     }
 
     public BlackjackPoint sum(BlackjackPoint blackjackPoint) {
@@ -29,10 +25,6 @@ public class BlackjackPoint {
         }
 
         return blackjackPoint;
-    }
-
-    public int getPoint() {
-        return point;
     }
 
     public boolean isWin(BlackjackPoint blackjackPoint) {
@@ -57,11 +49,6 @@ public class BlackjackPoint {
         if (o == null || getClass() != o.getClass()) return false;
         BlackjackPoint that = (BlackjackPoint) o;
         return point == that.point;
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(point);
     }
 
     private void validateLowerThanZero(int point) {

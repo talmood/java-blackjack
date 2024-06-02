@@ -48,6 +48,6 @@ public class BlackjackPlayer implements BlackjackParticipant {
     }
 
     public String getPlayerName() {
-        return blackjackPlayerName.getName();
+        return blackjackPlayerName.name();
     }
 }

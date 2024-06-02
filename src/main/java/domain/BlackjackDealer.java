@@ -1,6 +1,6 @@
 package domain;
 
-import util.ObjectUtils;
+import domain.validator.ObjectsValidator;
 
 import java.util.List;
 
@@ -9,7 +9,7 @@ public class BlackjackDealer implements BlackjackParticipant {
     private final TrumpCards trumpCards;
 
     public BlackjackDealer(TrumpCards trumpCards) {
-        this.validateNotNull(trumpCards);
+        ObjectsValidator.validateNotNull(trumpCards);
         this.trumpCards = trumpCards;
     }
 
@@ -44,11 +44,5 @@ public class BlackjackDealer implements BlackjackParticipant {
         BlackjackPoint maxBlackjackPoint = trumpCards.totalMaxBlackjackPoint();
 
         return minBlackjackPoint.fetchCloserPointThreshold(maxBlackjackPoint);
-    }
-
-    public void validateNotNull(TrumpCards trumpCards) {
-        if (ObjectUtils.hasNull(trumpCards)) {
-            throw new IllegalArgumentException("trumpCards는 null값이면 안됩니다.");
-        }
     }
 }

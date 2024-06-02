@@ -17,7 +17,7 @@ public class DealerWinOrLoseOutput {
     }
 
     public static DealerWinOrLoseOutput from(DealerWinOrLose dealerWinOrLose) {
-        return new DealerWinOrLoseOutput(dealerWinOrLose.getWinCount(), dealerWinOrLose.getLoseCount(), dealerWinOrLose.getTieCount());
+        return new DealerWinOrLoseOutput(dealerWinOrLose.winCount(), dealerWinOrLose.loseCount(), dealerWinOrLose.tieCount());
     }
 
     public int getWinCount() {

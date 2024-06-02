@@ -35,7 +35,7 @@ public class BlackjackParticipants {
         return this.blackjackParticipants.size();
     }
 
-    public List<BlackjackParticipant> getBlackjackParticipants() {
+    public List<BlackjackParticipant> fetchBlackjackParticipants() {
         return List.copyOf(this.blackjackParticipants);
     }
 

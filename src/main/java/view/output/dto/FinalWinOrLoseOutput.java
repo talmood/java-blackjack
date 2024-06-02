@@ -19,7 +19,7 @@ public class FinalWinOrLoseOutput {
     public static FinalWinOrLoseOutput from(FinalWinOrLose finalWinOrLose) {
         return new FinalWinOrLoseOutput(
                 DealerWinOrLoseOutput.from(finalWinOrLose.getDealerWinOrLose()),
-                finalWinOrLose.getPlayerWinOrLose().stream()
+                finalWinOrLose.fetchPlayerWinOrLose().stream()
                         .map(PlayerWinOrLoseOutput::from)
                         .collect(Collectors.toList())
         );

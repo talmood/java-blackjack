@@ -26,7 +26,7 @@ public class BlackjackPlayers {
         return List.copyOf(this.blackjackPlayers);
     }
 
-    public List<BlackjackPlayer> getBlackjackPlayers() {
+    public List<BlackjackPlayer> fetchBlackjackPlayers() {
         return List.copyOf(this.blackjackPlayers);
     }
 }

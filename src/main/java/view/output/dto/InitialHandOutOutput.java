@@ -19,7 +19,7 @@ public class InitialHandOutOutput {
 
     public static InitialHandOutOutput of(HandOutCount handOutCount, BlackjackGame blackjackGame) {
         return new InitialHandOutOutput(
-                handOutCount.getHandOutCount(),
+                handOutCount.handOutCount(),
                 blackjackGame.fetchBlackjackParticipants().stream()
                         .map(InitialHandOutParticipantOutput::from)
                         .collect(Collectors.toList())

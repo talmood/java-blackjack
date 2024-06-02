@@ -17,7 +17,7 @@ public class HandOutPlayerOutput {
     }
 
     public static HandOutPlayerOutput of(BlackjackPlayerName blackjackPlayerName, BlackjackParticipant blackjackParticipant) {
-        return new HandOutPlayerOutput(blackjackPlayerName.getName(), blackjackParticipant.fetchKoreanCardNames());
+        return new HandOutPlayerOutput(blackjackPlayerName.name(), blackjackParticipant.fetchKoreanCardNames());
     }
 
     public String getPlayerName() {

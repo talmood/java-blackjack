@@ -11,7 +11,7 @@ public class HandOutPlayerRequest {
     }
 
     public static HandOutPlayerRequest from(BlackjackPlayerName blackjackPlayerName) {
-        return new HandOutPlayerRequest(blackjackPlayerName.getName());
+        return new HandOutPlayerRequest(blackjackPlayerName.name());
     }
 
     public String getPlayerName() {
