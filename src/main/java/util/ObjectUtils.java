@@ -1,14 +1,17 @@
 package util;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
-import java.util.stream.Stream;
 
 public abstract class ObjectUtils {
 
     public static boolean hasNull(Object... args) {
-        List<Object> argsList = Stream.of(args).toList();
+        return Objects.isNull(args) ||
+                (!CollectionUtils.isEmpty(toList(args)) && toList(args).stream().anyMatch(Objects::isNull));
+    }
 
-        return !CollectionUtils.isEmpty(argsList) && argsList.stream().anyMatch(Objects::isNull);
+    private static List<Object> toList(Object... args) {
+        return Arrays.stream(args).toList();
     }
 }

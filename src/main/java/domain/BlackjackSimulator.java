@@ -9,6 +9,8 @@ import view.output.dto.InitialHandOutOutput;
 
 public class BlackjackSimulator {
 
+    private static final int INITIAL_HANDOUT_COUNT = 2;
+
     private final InputView inputView;
 
     private final OutputView outputView;
@@ -25,8 +27,8 @@ public class BlackjackSimulator {
     }
 
     public BlackjackGame InitialHandOutGame(BlackjackGame blackjackGame) {
-        HandOutCount handOutCount = new HandOutCount(2);
-        BlackjackInitialHandOuter blackjackInitialHandOuter = new BlackjackInitialHandOuter(blackjackGame, new HandOutCount(2));
+        HandOutCount handOutCount = new HandOutCount(INITIAL_HANDOUT_COUNT);
+        BlackjackHandOuter blackjackInitialHandOuter = new BlackjackInitialHandOuter(blackjackGame, handOutCount);
         BlackjackGame initialHandOutGame = blackjackInitialHandOuter.handOut();
         outputView.viewInitialHandOut(InitialHandOutOutput.of(handOutCount, initialHandOutGame));
 
@@ -34,12 +36,12 @@ public class BlackjackSimulator {
     }
 
     public BlackjackGame handOutPlayers(BlackjackGame blackjackGame) {
-        BlackjackPlayersHandOuter blackjackPlayersHandOuter = new BlackjackPlayersHandOuter(blackjackGame, inputView, outputView);
+        BlackjackHandOuter blackjackPlayersHandOuter = new BlackjackPlayersHandOuter(blackjackGame, inputView, outputView);
         return blackjackPlayersHandOuter.handOut();
     }
 
     public BlackjackGame handOutDealer(BlackjackGame blackjackGame) {
-        BlackjackDealerHandOuter blackjackDealerHandOuter = new BlackjackDealerHandOuter(blackjackGame, outputView);
+        BlackjackHandOuter blackjackDealerHandOuter = new BlackjackDealerHandOuter(blackjackGame, outputView);
         BlackjackGame dealerHandOutGame = blackjackDealerHandOuter.handOut();
         outputView.viewBlackjackResult(BlackjackResultOutputs.from(dealerHandOutGame));
 
