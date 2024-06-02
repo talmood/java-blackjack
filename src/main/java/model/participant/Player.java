@@ -33,7 +33,7 @@ public class Player extends Participant implements CardRecipient {
     @Override
     public void receive(final Card card) {
         if (!receivable()) {
-            throw new IllegalStateException();
+            throw new IllegalStateException("Participant cannot receive card %s".formatted(card.toString()));
         }
         super.addHand(card);
     }

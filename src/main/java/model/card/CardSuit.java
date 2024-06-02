@@ -13,7 +13,7 @@ public enum CardSuit {
         this.description = description;
     }
 
-    public String getKoreanDescription() {
+    public String getDescription() {
         return description;
     }
 
