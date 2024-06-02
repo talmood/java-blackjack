@@ -17,10 +17,4 @@ public class CardSet {
         return pickedCard;
     }
 
-    @Override
-    public String toString() {
-        return "CardSet{" +
-                "cards=" + cards +
-                '}';
-    }
 }

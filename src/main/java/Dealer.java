@@ -4,10 +4,4 @@ public class Dealer extends CardHolder {
         super();
     }
 
-    @Override
-    public String toString() {
-        return "Dealer{" +
-                "cards=" + cards +
-                '}';
-    }
 }

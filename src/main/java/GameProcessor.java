@@ -4,6 +4,8 @@ public class GameProcessor {
     InputView inputView;
     ResultView resultView;
 
+    static int MAX_DEALER_CARD_NUMBER_SUM = 16;
+
     public GameProcessor(InputView inputView, ResultView resultView) {
         this.inputView = inputView;
         this.resultView = resultView;
@@ -26,5 +28,17 @@ public class GameProcessor {
         return player;
     }
 
-
+    public Dealer dealerPlayGame(Dealer dealer, CardSet cardSet) {
+        List<Card> cards = dealer.getCards();
+        int sumOfNumbers = 0;
+        for (Card card : cards) {
+            sumOfNumbers += card.number.getValue();
+        }
+        if (sumOfNumbers <= MAX_DEALER_CARD_NUMBER_SUM) {
+            dealer.pickCard(cardSet);
+            resultView.printDealerCard();
+            dealerPlayGame(dealer, cardSet);
+        }
+        return dealer;
+    }
 }

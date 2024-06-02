@@ -19,6 +19,7 @@ public class Application {
 
         GameProcessor gameProcessor = new GameProcessor(inputView, resultView);
         List<Player> playersFinishedGame = gameProcessor.playersPlayGame(players, cardSet);
+        Dealer dealerFinishedGame = gameProcessor.dealerPlayGame(dealer, cardSet);
 
     }
 }

@@ -27,27 +27,6 @@ public class GameStarter {
     public CardSet generateCardSet() {
        return new Card().generateCardSet();
     }
-//
-//    public Dealer pickDealerCards(ResultView resultView) {
-//        Card card = new Card();
-//        List<Card> dealerCards = card.generateCards(DEALING_CARD_NUMBERS);
-//        Dealer dealer = new Dealer(dealerCards);
-//        resultView.printInitialDealerCards(dealer);
-//
-//        return dealer;
-//    }
-//
-//    public List<Player> pickPlayerCards(List<String> playerNames, ResultView resultView) {
-//        Card card = new Card();
-//        List<Player> players = new ArrayList<>();
-//        for (String playerName : playerNames) {
-//            Player player = new Player(playerName, card.generateCards(DEALING_CARD_NUMBERS));
-//            players.add(player);
-//        }
-//        resultView.printInitialPlayerCards(players);
-//
-//        return players;
-//    }
     
     public GameStatus dealFirstTurn(GameStatus gameStatus) {
 
