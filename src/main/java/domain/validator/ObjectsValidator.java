@@ -5,7 +5,7 @@ import util.ObjectUtils;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-public class ObjectsValidator {
+public abstract class ObjectsValidator {
 
     private static final String NOT_NULL_MESSAGE = "%s는 null값이면 안됩니다.";
 
