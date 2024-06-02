@@ -1,6 +1,6 @@
 package view.output.dto;
 
-import domain.BlackjackGame;
+import domain.game.BlackjackGame;
 
 import java.util.List;
 import java.util.stream.Collectors;

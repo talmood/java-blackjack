@@ -1,7 +1,7 @@
 package Controller;
 
-import domain.BlackjackGame;
-import domain.BlackjackSimulator;
+import domain.game.BlackjackGame;
+import domain.game.BlackjackSimulator;
 
 public class BlackjackSimulatorRunner {
 

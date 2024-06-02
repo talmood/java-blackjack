@@ -1,4 +1,7 @@
-package domain;
+package domain.participant;
+
+import domain.trumpcard.TrumpCard;
+import domain.winorlose.BlackjackPoint;
 
 import java.util.List;
 

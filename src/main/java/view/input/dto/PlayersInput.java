@@ -1,6 +1,6 @@
 package view.input.dto;
 
-import domain.BlackjackPlayerName;
+import domain.participant.BlackjackPlayerName;
 import util.CollectionUtils;
 import util.PatternUtils;
 import util.StringUtils;

@@ -1,4 +1,7 @@
-package domain;
+package domain.winorlose;
+
+import domain.participant.BlackjackPlayerName;
+import domain.trumpcard.WinOrLose;
 
 import java.util.Objects;
 

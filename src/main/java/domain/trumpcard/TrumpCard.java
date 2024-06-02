@@ -1,6 +1,7 @@
-package domain;
+package domain.trumpcard;
 
 import domain.validator.ObjectsValidator;
+import domain.winorlose.BlackjackPoint;
 
 import java.util.Objects;
 

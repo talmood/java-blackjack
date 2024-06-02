@@ -1,5 +1,10 @@
-package domain;
+package domain.handouter;
 
+import domain.game.BlackjackGame;
+import domain.participant.BlackjackParticipant;
+import domain.participant.BlackjackParticipants;
+import domain.trumpcard.TrumpCard;
+import domain.trumpcard.TrumpCardDeck;
 import domain.validator.ObjectsValidator;
 
 import java.util.ArrayList;

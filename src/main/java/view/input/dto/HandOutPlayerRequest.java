@@ -1,6 +1,6 @@
 package view.input.dto;
 
-import domain.BlackjackPlayerName;
+import domain.participant.BlackjackPlayerName;
 
 public class HandOutPlayerRequest {
 

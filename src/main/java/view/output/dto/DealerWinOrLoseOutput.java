@@ -1,6 +1,6 @@
 package view.output.dto;
 
-import domain.DealerWinOrLose;
+import domain.winorlose.DealerWinOrLose;
 
 public record DealerWinOrLoseOutput(int winCount, int loseCount, int tieCount) {
 

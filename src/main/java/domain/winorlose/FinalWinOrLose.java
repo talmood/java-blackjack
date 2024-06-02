@@ -1,4 +1,4 @@
-package domain;
+package domain.winorlose;
 
 import domain.validator.CollectionValidator;
 import domain.validator.ObjectsValidator;

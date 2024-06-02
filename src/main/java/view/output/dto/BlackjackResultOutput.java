@@ -1,7 +1,7 @@
 package view.output.dto;
 
-import domain.BlackjackParticipant;
-import domain.BlackjackPlayer;
+import domain.participant.BlackjackParticipant;
+import domain.participant.BlackjackPlayer;
 
 import java.util.List;
 

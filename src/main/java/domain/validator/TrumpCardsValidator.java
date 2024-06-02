@@ -1,6 +1,6 @@
 package domain.validator;
 
-import domain.TrumpCard;
+import domain.trumpcard.TrumpCard;
 
 import java.util.HashSet;
 import java.util.List;

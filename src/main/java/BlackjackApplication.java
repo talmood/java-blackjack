@@ -1,5 +1,5 @@
 import Controller.BlackjackSimulatorRunner;
-import domain.BlackjackSimulator;
+import domain.game.BlackjackSimulator;
 import view.input.ConsoleInputReader;
 import view.input.ConsoleInputView;
 import view.input.InputReader;

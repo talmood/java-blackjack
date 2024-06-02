@@ -1,11 +1,15 @@
-package domain;
+package domain.winorlose;
 
+import domain.game.BlackjackGame;
+import domain.participant.BlackjackDealer;
+import domain.participant.BlackjackPlayer;
+import domain.participant.BlackjackPlayers;
 import domain.validator.ObjectsValidator;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static domain.WinOrLose.*;
+import static domain.trumpcard.WinOrLose.*;
 
 public class BlackjackWinOrLoseDecider {
 

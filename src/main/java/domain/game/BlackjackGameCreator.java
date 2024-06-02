@@ -1,5 +1,10 @@
-package domain;
+package domain.game;
 
+import domain.participant.BlackjackDealer;
+import domain.participant.BlackjackParticipants;
+import domain.participant.BlackjackPlayerName;
+import domain.participant.BlackjackPlayers;
+import domain.trumpcard.TrumpCardDeck;
 import domain.validator.ObjectsValidator;
 import view.input.InputView;
 import view.input.dto.PlayersInput;

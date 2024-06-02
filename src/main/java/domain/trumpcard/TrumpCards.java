@@ -1,6 +1,7 @@
-package domain;
+package domain.trumpcard;
 
 import domain.validator.TrumpCardsValidator;
+import domain.winorlose.BlackjackPoint;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -15,10 +16,6 @@ public class TrumpCards {
     public TrumpCards(List<TrumpCard> trumpCards) {
         TrumpCardsValidator.validate(trumpCards);
         this.trumpCards = trumpCards;
-    }
-
-    public TrumpCards(TrumpCards trumpCards) {
-        this.trumpCards = trumpCards.getCards();
     }
 
     public static TrumpCards createAll() {
@@ -77,10 +74,6 @@ public class TrumpCards {
         return this.trumpCards.stream()
                 .map(TrumpCard::fetchMinBlackjackPoint)
                 .reduce(new BlackjackPoint(0), BlackjackPoint::sum);
-    }
-
-    public List<TrumpCard> getCards() {
-        return List.copyOf(this.trumpCards);
     }
 
     public int size() {

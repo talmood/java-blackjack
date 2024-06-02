@@ -1,5 +1,6 @@
-package domain;
+package domain.participant;
 
+import domain.trumpcard.TrumpCards;
 import domain.validator.CollectionValidator;
 
 import java.util.List;

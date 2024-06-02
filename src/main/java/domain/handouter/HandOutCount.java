@@ -1,4 +1,4 @@
-package domain;
+package domain.handouter;
 
 public record HandOutCount(int handOutCount) {
 

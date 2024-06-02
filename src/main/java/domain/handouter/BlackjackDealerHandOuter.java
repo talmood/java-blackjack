@@ -1,6 +1,13 @@
-package domain;
+package domain.handouter;
 
+import domain.game.BlackjackGame;
+import domain.participant.BlackjackDealer;
+import domain.participant.BlackjackParticipant;
+import domain.participant.BlackjackParticipants;
+import domain.trumpcard.TrumpCard;
+import domain.trumpcard.TrumpCardDeck;
 import domain.validator.ObjectsValidator;
+import domain.winorlose.BlackjackPoint;
 import view.output.OutputView;
 import view.output.dto.HandOutDealerOutput;
 

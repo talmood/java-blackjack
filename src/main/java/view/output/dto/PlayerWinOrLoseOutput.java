@@ -1,6 +1,6 @@
 package view.output.dto;
 
-import domain.PlayerWinOrLose;
+import domain.winorlose.PlayerWinOrLose;
 
 public record PlayerWinOrLoseOutput(String playerName, String winOrLose) {
 

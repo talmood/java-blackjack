@@ -1,4 +1,4 @@
-package domain;
+package domain.winorlose;
 
 public record BlackjackPoint(int point) {
 

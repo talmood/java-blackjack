@@ -1,5 +1,12 @@
 package domain;
 
+import domain.game.BlackjackGame;
+import domain.participant.*;
+import domain.trumpcard.*;
+import domain.winorlose.BlackjackWinOrLoseDecider;
+import domain.winorlose.DealerWinOrLose;
+import domain.winorlose.FinalWinOrLose;
+import domain.winorlose.PlayerWinOrLose;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;

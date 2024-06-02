@@ -1,5 +1,7 @@
-package domain;
+package domain.game;
 
+import domain.participant.*;
+import domain.trumpcard.TrumpCardDeck;
 import domain.validator.ObjectsValidator;
 
 import java.util.List;

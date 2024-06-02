@@ -1,6 +1,6 @@
 package view.output.dto;
 
-import domain.FinalWinOrLose;
+import domain.winorlose.FinalWinOrLose;
 
 import java.util.List;
 import java.util.stream.Collectors;

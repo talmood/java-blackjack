@@ -1,4 +1,6 @@
-package domain;
+package domain.handouter;
+
+import domain.game.BlackjackGame;
 
 public interface BlackjackHandOuter {
 

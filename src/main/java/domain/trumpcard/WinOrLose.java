@@ -1,4 +1,4 @@
-package domain;
+package domain.trumpcard;
 
 public enum WinOrLose {
     WIN("승"),

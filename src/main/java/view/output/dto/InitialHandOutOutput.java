@@ -1,7 +1,7 @@
 package view.output.dto;
 
-import domain.BlackjackGame;
-import domain.HandOutCount;
+import domain.game.BlackjackGame;
+import domain.handouter.HandOutCount;
 
 import java.util.List;
 import java.util.stream.Collectors;

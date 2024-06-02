@@ -1,4 +1,4 @@
-package domain;
+package domain.trumpcard;
 
 import domain.validator.ObjectsValidator;
 
