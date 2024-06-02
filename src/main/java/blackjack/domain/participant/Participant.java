@@ -18,6 +18,16 @@ public abstract class Participant {
         cardDeck.drawInitialCards().forEach(cards::add);
     }
 
+    public void drawCard(final CardDeck cardDeck) {
+        cards.add(cardDeck.draw());
+    }
+
+    public boolean isBlackjack() {
+        return cards.isBlackjack();
+    }
+
+    public abstract boolean canDrawCard();
+
     public String getName() {
         return name.getName();
     }
