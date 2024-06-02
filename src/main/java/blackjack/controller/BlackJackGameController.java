@@ -1,7 +1,7 @@
 package blackjack.controller;
 
-import blackjack.domain.game.BlackJackGame;
 import blackjack.domain.card.CardDeck;
+import blackjack.domain.game.BlackJackGame;
 import blackjack.domain.participant.Dealer;
 import blackjack.domain.participant.Name;
 import blackjack.domain.participant.Player;
@@ -12,8 +12,6 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class BlackJackGameController {
-
-    private final InputView inputView = new InputView();
 
     public void run() {
         final CardDeck cardDeck = CardDeck.create();
@@ -27,7 +25,7 @@ public class BlackJackGameController {
     }
 
     private Players initPlayers() {
-        final List<String> playerNames = inputView.inputPlayerNames();
+        final List<String> playerNames = InputView.inputPlayerNames();
         final List<Player> players = playerNames.stream()
                 .map(name -> Player.of(Name.of(name)))
                 .collect(Collectors.toList());

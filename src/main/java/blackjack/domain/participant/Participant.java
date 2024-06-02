@@ -26,6 +26,13 @@ public abstract class Participant {
         return cards.isBlackjack();
     }
 
+    public boolean isBust() {
+        return cards.calculateScore() > 21;
+    }
+
+    public int calculateScore() {
+        return cards.calculateScore();
+    }
     public abstract boolean canDrawCard();
 
     public String getName() {

@@ -1,6 +1,7 @@
 package blackjack.domain.participant;
 
 import blackjack.domain.card.CardDeck;
+import blackjack.domain.result.PlayerResult;
 
 import java.util.List;
 
@@ -29,6 +30,17 @@ public class Players {
     public List<String> getPlayerNames() {
         return players.stream()
                 .map(Player::getName)
+                .toList();
+    }
+
+    public boolean isAllBlackjack() {
+        return players.stream()
+                .allMatch(Player::isBlackjack);
+    }
+
+    public List<PlayerResult> createResults(final Dealer dealer) {
+        return players.stream()
+                .map(player -> player.createResult(dealer))
                 .toList();
     }
 }
