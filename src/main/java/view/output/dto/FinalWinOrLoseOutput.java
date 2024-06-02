@@ -29,7 +29,7 @@ public class FinalWinOrLoseOutput {
         return dealerWinOrLoseOutput;
     }
 
-    public List<PlayerWinOrLoseOutput> getPlayerWinOrLoses() {
+    public List<PlayerWinOrLoseOutput> fetchPlayerWinOrLoses() {
         return List.copyOf(this.playerWinOrLoses);
     }
 }

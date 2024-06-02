@@ -37,10 +37,6 @@ public class BlackjackResultOutput {
         return participantName;
     }
 
-    public List<String> getCardKoreanNames() {
-        return cardKoreanNames;
-    }
-
     public int getTotalPoint() {
         return totalPoint;
     }

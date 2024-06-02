@@ -7,6 +7,7 @@ import view.input.dto.PlayersInput;
 import java.util.List;
 
 public class BlackjackGameCreator {
+
     private final InputView inputView;
 
     public BlackjackGameCreator(InputView inputView) {

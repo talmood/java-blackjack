@@ -1,14 +1,5 @@
 package view.output.dto;
 
-public class HandOutDealerOutput {
+public record HandOutDealerOutput(int handOutThreshold) {
 
-    private final int handOutThreshold;
-
-    public HandOutDealerOutput(int handOutThreshold) {
-        this.handOutThreshold = handOutThreshold;
-    }
-
-    public int getHandOutThreshold() {
-        return handOutThreshold;
-    }
 }

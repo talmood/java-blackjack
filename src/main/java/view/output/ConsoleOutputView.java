@@ -29,7 +29,7 @@ public class ConsoleOutputView implements OutputView {
         outputWriter.write(System.lineSeparator());
 
         List<InitialHandOutParticipantOutput> initialHandOutParticipantOutput =
-                initialHandOutOutput.getInitialHandOutParticipantOutput();
+                initialHandOutOutput.fetchInitialHandOutParticipantOutput();
 
         for (InitialHandOutParticipantOutput handOutParticipantOutput : initialHandOutParticipantOutput) {
             outputWriter.writeFormat(
@@ -49,13 +49,13 @@ public class ConsoleOutputView implements OutputView {
 
     @Override
     public void viewHandOutDealer(HandOutDealerOutput handOutDealerOutput) {
-        outputWriter.writeFormat(HAND_OUT_DEALER_NAVIGATION, handOutDealerOutput.getHandOutThreshold());
+        outputWriter.writeFormat(HAND_OUT_DEALER_NAVIGATION, handOutDealerOutput.handOutThreshold());
         outputWriter.write(System.lineSeparator());
     }
 
     @Override
     public void viewBlackjackResult(BlackjackResultOutputs blackjackResultOutput) {
-        List<BlackjackResultOutput> blackjackResultOutputs = blackjackResultOutput.getBlackjackResultOutputs();
+        List<BlackjackResultOutput> blackjackResultOutputs = blackjackResultOutput.blackjackResultOutputs();
         blackjackResultOutputs.forEach(output -> {
             outputWriter.writeFormat(
                     BLACKJACK_RESULT_NAVIGATION,
@@ -80,19 +80,19 @@ public class ConsoleOutputView implements OutputView {
         DealerWinOrLoseOutput dealerWinOrLoseOutput = finalWinOrLoseOutput.getDealerWinOrLoseOutput();
         outputWriter.writeFormat(
                 DEALER_WIN_OR_LOSE_NAVIGATION,
-                dealerWinOrLoseOutput.getWinCount(),
-                dealerWinOrLoseOutput.getTieCount(),
-                dealerWinOrLoseOutput.getLoseCount()
+                dealerWinOrLoseOutput.winCount(),
+                dealerWinOrLoseOutput.tieCount(),
+                dealerWinOrLoseOutput.loseCount()
         );
     }
 
     private void printPlayerWinOrLose(FinalWinOrLoseOutput finalWinOrLoseOutput) {
-        List<PlayerWinOrLoseOutput> playerWinOrLoses = finalWinOrLoseOutput.getPlayerWinOrLoses();
+        List<PlayerWinOrLoseOutput> playerWinOrLoses = finalWinOrLoseOutput.fetchPlayerWinOrLoses();
         playerWinOrLoses.forEach(playerWinOrLoseOutput -> {
             outputWriter.writeFormat(
                     PLAYER_WIN_OR_LOSE_NAVIGATION,
-                    playerWinOrLoseOutput.getPlayerName(),
-                    playerWinOrLoseOutput.getWinOrLose()
+                    playerWinOrLoseOutput.playerName(),
+                    playerWinOrLoseOutput.winOrLose()
             );
             outputWriter.write(System.lineSeparator());
         });

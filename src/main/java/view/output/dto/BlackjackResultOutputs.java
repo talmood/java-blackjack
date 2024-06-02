@@ -5,13 +5,7 @@ import domain.BlackjackGame;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class BlackjackResultOutputs {
-
-    private final List<BlackjackResultOutput> blackjackResultOutputs;
-
-    public BlackjackResultOutputs(List<BlackjackResultOutput> blackjackResultOutputs) {
-        this.blackjackResultOutputs = blackjackResultOutputs;
-    }
+public record BlackjackResultOutputs(List<BlackjackResultOutput> blackjackResultOutputs) {
 
     public static BlackjackResultOutputs from(BlackjackGame blackjackGame) {
         return new BlackjackResultOutputs(
@@ -19,9 +13,5 @@ public class BlackjackResultOutputs {
                         .map(BlackjackResultOutput::from)
                         .collect(Collectors.toList())
         );
-    }
-
-    public List<BlackjackResultOutput> getBlackjackResultOutputs() {
-        return blackjackResultOutputs;
     }
 }

@@ -44,10 +44,6 @@ public class InitialHandOutParticipantOutput {
         return participantName;
     }
 
-    public List<String> getCards() {
-        return cards;
-    }
-
     public boolean isPlayer() {
         return player;
     }

@@ -30,8 +30,8 @@ public class InitialHandOutOutput {
         return handOutCount;
     }
 
-    public List<InitialHandOutParticipantOutput> getInitialHandOutParticipantOutput() {
-        return initialHandOutParticipantOutput;
+    public List<InitialHandOutParticipantOutput> fetchInitialHandOutParticipantOutput() {
+        return List.copyOf(this.initialHandOutParticipantOutput);
     }
 
     public String fetchJoinedPlayerNames() {
