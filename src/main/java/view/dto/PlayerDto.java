@@ -42,7 +42,7 @@ public class PlayerDto {
     }
 
     public String formatScore() {
-        return formatHand() + "결과: %d".formatted(hand.calculateScore().value());
+        return formatHand() + "- 결과: %d".formatted(hand.calculateScore().value());
     }
 
 }
