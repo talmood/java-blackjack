@@ -12,6 +12,7 @@ import view.input.dto.PlayersInput;
 import java.util.List;
 import java.util.stream.Stream;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class BlackjackGameCreatorTest {
@@ -27,7 +28,7 @@ class BlackjackGameCreatorTest {
     @MethodSource(value = "playerNamesParameter")
     @DisplayName("플레이어 이름 입력을 받으면 입력한 플레이어들이 참여하는 blackjackGame이 생성된다")
     void createTest(String playerNamesInput) {
-        FakeInputView fakeInputView = new FakeInputView(playerNamesInput);
+        InputView fakeInputView = new FakeInputView(playerNamesInput);
 
         BlackjackGameCreator blackjackGameCreator = new BlackjackGameCreator(fakeInputView);
         BlackjackGame blackjackGame = blackjackGameCreator.create();
@@ -35,11 +36,13 @@ class BlackjackGameCreatorTest {
         BlackjackPlayers players = blackjackGame.findPlayers();
         List<BlackjackPlayer> blackjackPlayers = players.fetchBlackjackPlayers();
 
+        assertEquals(blackjackPlayers.size(), playerNamesInput.split(",").length);
         for (BlackjackPlayer blackjackPlayer : blackjackPlayers) {
             String playerName = blackjackPlayer.getPlayerName();
 
             assertTrue(playerNamesInput.contains(playerName));
         }
+
     }
 
 

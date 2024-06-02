@@ -10,11 +10,11 @@ public abstract class StringUtils {
         return Objects.isNull(str) || str.isEmpty();
     }
 
-    public static String trim(String str) {
+    public static String removeWhiteSpace(String str) {
         if (Objects.isNull(str)) {
             return EMPTY_STRING;
         }
 
-        return str.trim();
+        return str.replace(" ", "");
     }
 }
