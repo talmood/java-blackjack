@@ -53,7 +53,10 @@ public class Player extends Participant implements CardRecipient {
 
     public boolean won(final Dealer dealer) {
         if (dealer.busted()) {
-            return !super.busted();
+            return !this.busted();
+        }
+        if (this.busted()) {
+            return false;
         }
         return this.calculateScore().exceeds(dealer.calculateScore());
     }
