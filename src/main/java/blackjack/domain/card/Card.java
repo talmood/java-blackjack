@@ -27,6 +27,10 @@ public class Card {
         return rank;
     }
 
+    public String showCardInfo() {
+        return rank.getName() + suit.getName();
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

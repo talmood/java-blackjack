@@ -1,24 +1,54 @@
 package blackjack.domain.card;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Cards {
-    private static final int INITIAL_CARDS_SIZE = 2;
     private final List<Card> cards;
 
-    public Cards() {
-        this.cards = new ArrayList<>();
-    }
-    
-    public void receiveInitialCards(final List<Card> cards) {
-        validateInitialCards(cards);
-        this.cards.addAll(cards);
+    private Cards(final List<Card> cards) {
+        this.cards = cards;
     }
 
-    private void validateInitialCards(final List<Card> cards) {
-        if (cards.size() != INITIAL_CARDS_SIZE) {
-            throw new IllegalArgumentException("초기 카드는 %d장 이어야 합니다.".formatted(INITIAL_CARDS_SIZE));
+    public static Cards of(final List<Card> cards) {
+        return new Cards(cards);
+    }
+
+    public void add(final Card card) {
+        cards.add(card);
+    }
+
+    public List<String> showCardsInfo() {
+        return cards.stream()
+                .map(Card::showCardInfo)
+                .toList();
+    }
+
+    public boolean isBlackjack() {
+        return calculateScore() == 21 && cards.size() == 2;
+    }
+
+    public int calculateScore() {
+
+        int totalScore = cards.stream()
+                .mapToInt(card -> card.getRank().getScore())
+                .sum();
+
+        int aceCount = (int) cards.stream()
+                .map(Card::getRank)
+                .filter(Rank.ACE::equals)
+                .count();
+
+        return calculateAceScore(totalScore, aceCount);
+    }
+
+    private int calculateAceScore(final int totalScore, int aceCount) {
+        int score = totalScore;
+
+        while (aceCount > 0 && score + 10 <= 21) {
+            score += 10;
+            aceCount--;
         }
+
+        return score;
     }
 }
