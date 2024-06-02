@@ -1,6 +1,6 @@
 package view.output.dto;
 
-import domain.BlackjackParticipants;
+import domain.BlackjackGame;
 import domain.HandOutCount;
 
 import java.util.List;
@@ -17,10 +17,10 @@ public class InitialHandOutOutput {
         this.initialHandOutParticipantOutput = initialHandOutParticipantOutput;
     }
 
-    public static InitialHandOutOutput of(HandOutCount handOutCount, BlackjackParticipants blackjackParticipants) {
+    public static InitialHandOutOutput of(HandOutCount handOutCount, BlackjackGame blackjackGame) {
         return new InitialHandOutOutput(
                 handOutCount.getHandOutCount(),
-                blackjackParticipants.getBlackjackParticipants().stream()
+                blackjackGame.fetchBlackjackParticipants().stream()
                         .map(InitialHandOutParticipantOutput::from)
                         .collect(Collectors.toList())
         );

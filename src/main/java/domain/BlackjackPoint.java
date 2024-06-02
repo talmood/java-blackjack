@@ -8,6 +8,7 @@ public class BlackjackPoint {
     private final int point;
 
     public BlackjackPoint(int point) {
+        this.validateLowerThanZero(point);
         this.point = point;
     }
 
@@ -15,7 +16,7 @@ public class BlackjackPoint {
         return new BlackjackPoint(this.point + blackjackPoint.point);
     }
 
-    public boolean isLossThan(BlackjackPoint blackjackPoint) {
+    public boolean isLowerThan(BlackjackPoint blackjackPoint) {
         return this.point < blackjackPoint.point;
     }
 
@@ -61,5 +62,11 @@ public class BlackjackPoint {
     @Override
     public int hashCode() {
         return Objects.hash(point);
+    }
+
+    private void validateLowerThanZero(int point) {
+        if (point < 0) {
+            throw new IllegalArgumentException("블랙잭 포인트는 음수일 수 없습니다.");
+        }
     }
 }

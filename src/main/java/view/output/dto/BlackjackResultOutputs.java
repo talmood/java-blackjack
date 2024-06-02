@@ -1,6 +1,6 @@
 package view.output.dto;
 
-import domain.BlackjackParticipants;
+import domain.BlackjackGame;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -13,9 +13,9 @@ public class BlackjackResultOutputs {
         this.blackjackResultOutputs = blackjackResultOutputs;
     }
 
-    public static BlackjackResultOutputs from(BlackjackParticipants blackjackParticipants) {
+    public static BlackjackResultOutputs from(BlackjackGame blackjackGame) {
         return new BlackjackResultOutputs(
-                blackjackParticipants.getBlackjackParticipants().stream()
+                blackjackGame.fetchBlackjackParticipants().stream()
                         .map(BlackjackResultOutput::from)
                         .collect(Collectors.toList())
         );

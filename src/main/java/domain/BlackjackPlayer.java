@@ -1,13 +1,16 @@
 package domain;
 
+import domain.validator.ObjectsValidator;
+
 import java.util.List;
 
-public class BlackjackPlayer implements BlackjackParticipant, ReHandOutPlayer {
+public class BlackjackPlayer implements BlackjackParticipant {
 
     private final BlackjackPlayerName blackjackPlayerName;
     private final TrumpCards trumpCards;
 
     public BlackjackPlayer(BlackjackPlayerName blackjackPlayerName, TrumpCards trumpCards) {
+        ObjectsValidator.validateNotNull(blackjackPlayerName, trumpCards);
         this.blackjackPlayerName = blackjackPlayerName;
         this.trumpCards = trumpCards;
     }
@@ -17,24 +20,8 @@ public class BlackjackPlayer implements BlackjackParticipant, ReHandOutPlayer {
         return new BlackjackPlayer(this.blackjackPlayerName, this.trumpCards.addCard(trumpCard));
     }
 
-    @Override
     public BlackjackPlayerName getBlackjackPlayerName() {
         return this.blackjackPlayerName;
-    }
-
-    @Override
-    public String fetchPlayerNameToString() {
-        return this.blackjackPlayerName.getName();
-    }
-
-    @Override
-    public TrumpCards getTrumpCards() {
-        return this.trumpCards;
-    }
-
-    @Override
-    public List<String> fetchCardKoreanNames() {
-        return this.trumpCards.fetchKoreanNames();
     }
 
     @Override
@@ -62,9 +49,5 @@ public class BlackjackPlayer implements BlackjackParticipant, ReHandOutPlayer {
 
     public String getPlayerName() {
         return blackjackPlayerName.getName();
-    }
-
-    public boolean isEqualName(BlackjackPlayerName blackjackPlayerName) {
-        return this.blackjackPlayerName.equals(blackjackPlayerName);
     }
 }

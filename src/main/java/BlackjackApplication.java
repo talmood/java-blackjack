@@ -1,4 +1,5 @@
-import Controller.BlackjackSimulator;
+import Controller.BlackjackSimulatorRunner;
+import domain.BlackjackSimulator;
 import view.input.ConsoleInputReader;
 import view.input.ConsoleInputView;
 import view.input.InputReader;
@@ -16,7 +17,7 @@ public class BlackjackApplication {
         InputView inputView = new ConsoleInputView(inputReader, outputWriter);
         OutputView outputView = new ConsoleOutputView(outputWriter);
 
-        BlackjackSimulator blackjackSimulator = new BlackjackSimulator(inputView, outputView);
-        blackjackSimulator.run();
+        BlackjackSimulatorRunner blackjackSimulatorRunner = new BlackjackSimulatorRunner(new BlackjackSimulator(inputView, outputView));
+        blackjackSimulatorRunner.run();
     }
 }

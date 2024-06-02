@@ -11,14 +11,6 @@ public class PlayerWinOrLose {
         this.winOrLose = winOrLose;
     }
 
-    public BlackjackPlayerName getBlackjackPlayerName() {
-        return blackjackPlayerName;
-    }
-
-    public WinOrLose getWinOrLose() {
-        return winOrLose;
-    }
-
     public String fetchPlayerName() {
         return this.blackjackPlayerName.getName();
     }

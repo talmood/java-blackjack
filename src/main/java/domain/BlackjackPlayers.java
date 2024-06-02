@@ -1,5 +1,7 @@
 package domain;
 
+import domain.validator.CollectionValidator;
+
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -8,6 +10,7 @@ public class BlackjackPlayers {
     private final List<BlackjackPlayer> blackjackPlayers;
 
     public BlackjackPlayers(List<BlackjackPlayer> blackjackPlayers) {
+        CollectionValidator.validateNotEmpty(blackjackPlayers);
         this.blackjackPlayers = blackjackPlayers;
     }
 

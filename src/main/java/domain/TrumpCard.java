@@ -1,6 +1,6 @@
 package domain;
 
-import domain.validator.TrumpCardValidator;
+import domain.validator.ObjectsValidator;
 
 import java.util.Objects;
 
@@ -11,7 +11,7 @@ public class TrumpCard {
     private final TrumpCardSuit trumpCardSuit;
 
     public TrumpCard(TrumpCardRank trumpCardRank, TrumpCardSuit trumpCardSuit) {
-        TrumpCardValidator.validate(trumpCardRank, trumpCardSuit);
+        ObjectsValidator.validateNotNull(trumpCardRank, trumpCardSuit);
         this.trumpCardRank = trumpCardRank;
         this.trumpCardSuit = trumpCardSuit;
     }
