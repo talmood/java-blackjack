@@ -67,11 +67,6 @@ class BlackjackPlayersHandOuterTest {
 
             return null;
         }
-
-        @Override
-        public void viewThresholdCard() {
-
-        }
     }
 
     static class FakeOutputView implements OutputView {

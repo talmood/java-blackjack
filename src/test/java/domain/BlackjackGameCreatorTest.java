@@ -67,10 +67,5 @@ class BlackjackGameCreatorTest {
         public HandOutPlayerInput viewHandOutCardForPlayer(HandOutPlayerRequest handOutPlayerRequest) {
             return null;
         }
-
-        @Override
-        public void viewThresholdCard() {
-
-        }
     }
 }

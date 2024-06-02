@@ -31,10 +31,6 @@ public class PlayersInput {
         }
     }
 
-    public List<String> getPlayerNames() {
-        return playerNames;
-    }
-
     private void validateIsEmpty(List<String> playerNames) {
         if (CollectionUtils.isEmpty(playerNames)) {
             throw new IllegalArgumentException("최소 1명의 플레이어가 있어야 합니다.");

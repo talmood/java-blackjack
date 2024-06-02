@@ -1,6 +1,6 @@
 package domain.participant;
 
-import util.CollectionUtils;
+import domain.validator.CollectionValidator;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,7 +11,7 @@ public class BlackjackParticipants {
     private final List<BlackjackParticipant> blackjackParticipants;
 
     public BlackjackParticipants(List<BlackjackParticipant> blackjackParticipants) {
-        this.validateNotEmpty(blackjackParticipants);
+        CollectionValidator.validateNotEmpty(blackjackParticipants);
         this.blackjackParticipants = blackjackParticipants;
     }
 
@@ -23,12 +23,6 @@ public class BlackjackParticipants {
         return new BlackjackParticipants(
                 participants
         );
-    }
-
-    private void validateNotEmpty(List<BlackjackParticipant> blackjackParticipants) {
-        if (CollectionUtils.isEmpty(blackjackParticipants)) {
-            throw new IllegalArgumentException("블랙잭 참가자는 null이거나 empty이면 안됩니다.");
-        }
     }
 
     public int size() {

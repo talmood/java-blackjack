@@ -10,5 +10,4 @@ public interface InputView {
 
     HandOutPlayerInput viewHandOutCardForPlayer(HandOutPlayerRequest handOutPlayerRequest);
 
-    void viewThresholdCard();
 }

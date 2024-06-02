@@ -5,6 +5,7 @@ import view.input.dto.HandOutPlayerRequest;
 import view.input.dto.PlayersInput;
 import view.output.OutputWriter;
 
+
 public class ConsoleInputView implements InputView {
 
     private final static String PLAYERS_NAVIGATION = "게임에 참여할 사람의 이름을 입력하세요.(쉼표 기준으로 분리)";
@@ -33,10 +34,5 @@ public class ConsoleInputView implements InputView {
         String line = inputReader.readLine();
 
         return HandOutPlayerInput.from(line);
-    }
-
-    @Override
-    public void viewThresholdCard() {
-
     }
 }
