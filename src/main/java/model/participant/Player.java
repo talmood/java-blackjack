@@ -1,6 +1,6 @@
 package model.participant;
 
-import model.GameResult;
+import view.dto.GameResult;
 import model.card.Card;
 import model.card.CardHand;
 import model.card.CardRecipient;

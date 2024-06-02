@@ -1,6 +1,6 @@
 package model.participant;
 
-import model.GameResult;
+import view.dto.GameResult;
 import model.card.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

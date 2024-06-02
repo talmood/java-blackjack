@@ -1,4 +1,4 @@
-package view;
+package view.dto;
 
 import model.participant.Dealer;
 import model.participant.Player;
@@ -23,4 +23,8 @@ public record ParticipantsDto(
         return "딜러와 %s에게 2장을 나누었습니다.".formatted(playerNames);
     }
 
+    public String formatDealerScore() {
+        return dealer.formatCardHand();
+    }
+    
 }

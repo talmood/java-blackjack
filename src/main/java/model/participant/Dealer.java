@@ -1,7 +1,7 @@
 package model.participant;
 
 import model.CardScore;
-import model.GameResult;
+import view.dto.GameResult;
 import model.card.Card;
 import model.card.CardDispenser;
 import model.card.CardHand;

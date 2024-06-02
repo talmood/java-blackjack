@@ -12,4 +12,8 @@ public record CardScore(
         return this.value <= other.value;
     }
 
+    public boolean exceeds(final CardScore other) {
+        return this.value > other.value;
+    }
+
 }

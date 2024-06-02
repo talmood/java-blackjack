@@ -14,7 +14,7 @@ public class Participant {
         this.hand = hand;
     }
 
-    public boolean isBust() {
+    public boolean busted() {
         return this.hand.isBust();
     }
 
