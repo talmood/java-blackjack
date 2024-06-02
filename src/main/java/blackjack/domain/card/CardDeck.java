@@ -1,10 +1,11 @@
 package blackjack.domain.card;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class Deck {
+public class CardDeck {
     private static final int DECK_SIZE = 52;
     private static final String DECK_EMPTY_MESSAGE = "덱이 비었습니다.";
     private static final String DECK_SIZE_MESSAGE = String.format("덱의 크기는 %d 입니다.", DECK_SIZE);
@@ -12,15 +13,14 @@ public class Deck {
 
     private final List<Card> cards;
 
-    private Deck() {
+    private CardDeck() {
         final List<Card> initializedCards = initialize();
         validate(initializedCards);
         this.cards = initializedCards;
     }
 
-    public static Deck create() {
-        // TODO: 5/29/24 deck 생성 시, 셔플 작업 추가
-        return new Deck();
+    public static CardDeck create() {
+        return new CardDeck();
     }
 
     private static List<Card> initialize() {
@@ -40,6 +40,10 @@ public class Deck {
         if (cards.stream().distinct().count() != DECK_SIZE) {
             throw new IllegalArgumentException(DUPLICATE_CARD_MESSAGE);
         }
+    }
+
+    public void shuffle() {
+        Collections.shuffle(cards);
     }
 
     public List<Card> getCards() {
