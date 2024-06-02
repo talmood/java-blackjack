@@ -24,7 +24,7 @@ public record ParticipantsDto(
     }
 
     public String formatDealerScore() {
-        return dealer.formatCardHand();
+        return dealer.formatScore();
     }
-    
+
 }
