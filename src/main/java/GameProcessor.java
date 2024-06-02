@@ -9,22 +9,22 @@ public class GameProcessor {
         this.resultView = resultView;
     }
 
-//    public List<Player> playersPlayGame(List<Player> players) {
-//        for (int i = 0; i < players.size(); i++) {
-//            Player updatedPlayer = playerAcceptsExtraCardIfChooseTo(players.get(i));
-//            players.set(i, updatedPlayer);
-//        }
-//        return players;
-//    }
+    public List<Player> playersPlayGame(List<Player> players, CardSet cardSet) {
+        for (int i = 0; i < players.size(); i++) {
+            Player updatedPlayer = playerAcceptsExtraCardIfChooseTo(players.get(i), cardSet);
+            players.set(i, updatedPlayer);
+        }
+        return players;
+    }
 
-//    public Player playerAcceptsExtraCardIfChooseTo(Player player) {
-//        if (inputView.askIfGetOneMoreCard(player.name)) {
-//            player = player.acceptsExtraCard(player);
-//            resultView.printPlayerCards(player);
-//            playerAcceptsExtraCardIfChooseTo(player);
-//        }
-//        return player;
-//    }
+    public Player playerAcceptsExtraCardIfChooseTo(Player player, CardSet cardSet) {
+        if (inputView.askIfGetOneMoreCard(player.name)) {
+            player.pickCard(cardSet);
+            resultView.printPlayerCards(player);
+            playerAcceptsExtraCardIfChooseTo(player, cardSet);
+        }
+        return player;
+    }
 
 
 }
