@@ -11,16 +11,16 @@ public class CardHand {
 
     private final List<Card> cards;
 
-    CardHand(List<Card> cards) {
+    public CardHand(List<Card> cards) {
         this.cards = cards;
     }
 
-    public static CardHand defaultOf() {
+    public static CardHand emptyOf() {
         return new CardHand(new ArrayList<>());
     }
 
-    public void addCard(Card toAdd) {
-        this.cards.add(toAdd);
+    public void addCards(final List<Card> toAdd) {
+        this.cards.addAll(toAdd);
     }
 
     public boolean isBust() {
@@ -46,6 +46,10 @@ public class CardHand {
                 .map(Card::getScore)
                 .mapToInt(Integer::intValue)
                 .sum();
+    }
+
+    public List<Card> getCards() {
+        return List.copyOf(this.cards);
     }
 
 }

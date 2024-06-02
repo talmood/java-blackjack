@@ -7,4 +7,9 @@ public record CardScore(
     public boolean exceeds(final int score) {
         return this.value > score;
     }
+
+    public boolean isEqualOrLessThan(final CardScore other) {
+        return this.value <= other.value;
+    }
+
 }
