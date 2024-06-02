@@ -9,9 +9,9 @@ public class Player {
         this.cards = cards;
     }
 
-    public Player acceptsExtraCard(final Player player) {
-        List<Card> playerCards = player.cards;
-        playerCards.add(playerCards.size(), new Card().generateCards(1).get(0));
-        return new Player(player.name, playerCards);
-    }
+//    public Player acceptsExtraCard(final Player player) {
+//        List<Card> playerCards = player.cards;
+//        playerCards.add(playerCards.size(), new Card().generateCards(1).get(0));
+//        return new Player(player.name, playerCards);
+//    }
 }

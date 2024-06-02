@@ -8,7 +8,7 @@ public class ResultView {
 
     public void printInitialDealerCards(Dealer dealer) {
         Card firstCard = dealer.getCards().get(0);
-        System.out.println("딜러: " + firstCard.number + firstCard.suits.title );
+        System.out.println("딜러: " + firstCard.number + firstCard.suit.title );
     }
 
     public void printInitialPlayerCards(List<Player> players) {
@@ -21,7 +21,7 @@ public class ResultView {
         String message = player.name + " 카드: ";
         List<Card> cards = player.cards;
         String cardsToString = cards.stream()
-                .map(card -> card.number + card.suits.title)
+                .map(card -> card.number + card.suit.title)
                 .collect(Collectors.joining(", "));
         message += cardsToString;
         System.out.println(message);

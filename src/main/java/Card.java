@@ -1,22 +1,26 @@
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 public class Card {
-    int number;
-    Suits suits;
+
+    Denomination number;
+    Suit suit;
 
     public Card() {
-        this.number = new Random().nextInt(11) + 1;
-        this.suits = Suits.getRandomSuits();
     }
 
-    public List<Card> generateCards (int numberOfCards) {
+    public Card(Denomination number, Suit suit) {
+        this.number = number;
+        this.suit = suit;
+    }
+
+    public List<Card> generateCardSet () {
         List<Card> cards = new ArrayList<>();
-        for (int i = 0; i < numberOfCards; i++) {
-            cards.add(new Card());
+        for (Denomination denomination : Denomination.values()) {
+            for (Suit suit : Suit.values()){
+                cards.add(new Card(denomination,suit));
+            }
         }
         return cards;
     }
-
 }

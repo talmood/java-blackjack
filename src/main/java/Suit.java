@@ -1,6 +1,6 @@
 import java.util.Random;
 
-public enum Suits {
+public enum Suit {
     heart("하트"),
     spade("스페이드"),
     club("클로브"),
@@ -12,13 +12,13 @@ public enum Suits {
         return title;
     }
 
-    Suits(String title) {
+    Suit(String title) {
         this.title = title;
     }
 
-    public static Suits getRandomSuits() {
+    public static Suit getRandomSuits() {
         int randomIndex = new Random().nextInt(3);
-        Suits[] values = Suits.values();
+        Suit[] values = Suit.values();
         return values[randomIndex];
     }
 }
