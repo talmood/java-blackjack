@@ -56,15 +56,15 @@ public class Dealer extends Participant implements CardRecipient {
                 .filter(player -> player.lose(this))
                 .count();
 
-        final long loseCount = players.stream()
-                .filter(player -> player.won(this))
-                .count();
-
         final long tieCount = players.stream()
                 .filter(player -> player.tie(this))
                 .count();
 
-        return new GameResult(wonCount, loseCount, tieCount);
+        final long loseCount = players.stream()
+                .filter(player -> player.won(this))
+                .count();
+
+        return new GameResult(wonCount, tieCount, loseCount);
     }
 
 }
