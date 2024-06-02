@@ -1,18 +1,13 @@
 package model.card;
 
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class CardPack {
 
-    private static final int CARD_SIZE = 52;
+    private final Deque<Card> cards;
 
-    private final List<Card> cards;
-
-    private CardPack(List<Card> cards) {
+    CardPack(Deque<Card> cards) {
         if (Objects.isNull(cards)) {
             throw new IllegalArgumentException("cards must not be null");
         }
@@ -30,7 +25,7 @@ public class CardPack {
 
         Collections.shuffle(cards);
 
-        return new CardPack(cards);
+        return new CardPack(new ArrayDeque<>(cards));
     }
 
     private void verifyCardSize(final List<Card> cards) {
