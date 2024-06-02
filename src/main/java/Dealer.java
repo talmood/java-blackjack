@@ -1,13 +1,16 @@
+import java.util.ArrayList;
 import java.util.List;
 
-public class Dealer {
-    List<Card> cards;
+public class Dealer extends CardHolder{
 
-    public Dealer(List<Card> cards) {
-        this.cards = cards;
+    public Dealer() {
+        super();
     }
 
-    public List<Card> getCards() {
-        return cards;
+    @Override
+    public String toString() {
+        return "Dealer{" +
+                "cards=" + cards +
+                '}';
     }
 }

@@ -7,11 +7,17 @@ public class Application {
         ResultView resultView = new ResultView();
 
         GameStarter gameStarter = new GameStarter();
-        List<String> playerNames = gameStarter.getPlayersNames(inputView);
-        resultView.printFirstDeal(playerNames);
-        gameStarter.generateCardSet();
+        CardSet cardSet = gameStarter.generateCardSet();
+
+        List<Player> players = gameStarter.createPlayers(inputView);
+        Dealer dealer = gameStarter.createDealer();
+        GameStatus gameStatus = new GameStatus(players, dealer, cardSet);
+        gameStarter.dealFirstTurn(gameStatus);
+        resultView.printFirstDeal(gameStatus);
+
+
 //        Dealer dealer = gameStarter.pickDealerCards(resultView);
-//        List<Player> players = gameStarter.pickPlayerCards(playerNames, resultView);
+        //List<Player> players = gameStarter.pickPlayerCards(playerNames, resultView);
 
 //        List<Player> playersFinishedGame = new GameProcessor(inputView,resultView).playersPlayGame(players);
 

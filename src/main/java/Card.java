@@ -14,13 +14,21 @@ public class Card {
         this.suit = suit;
     }
 
-    public List<Card> generateCardSet () {
-        List<Card> cards = new ArrayList<>();
+    public CardSet generateCardSet () {
+        ArrayList<Card> cards = new ArrayList<>();
         for (Denomination denomination : Denomination.values()) {
             for (Suit suit : Suit.values()){
                 cards.add(new Card(denomination,suit));
             }
         }
-        return cards;
+        return new CardSet(cards);
+    }
+
+    @Override
+    public String toString() {
+        return "Card{" +
+                "number=" + number +
+                ", suit=" + suit +
+                '}';
     }
 }

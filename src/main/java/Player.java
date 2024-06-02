@@ -1,17 +1,26 @@
-import java.util.List;
-
-public class Player {
+public class Player extends CardHolder {
     String name;
-    List<Card> cards;
 
-    public Player(String name, List<Card> cards) {
+    public Player(String name) {
+        super();
         this.name = name;
-        this.cards = cards;
     }
 
-//    public Player acceptsExtraCard(final Player player) {
+    public String getName() {
+        return name;
+    }
+    //    public Player acceptsExtraCard(final Player player) {
 //        List<Card> playerCards = player.cards;
 //        playerCards.add(playerCards.size(), new Card().generateCards(1).get(0));
 //        return new Player(player.name, playerCards);
 //    }
+
+
+    @Override
+    public String toString() {
+        return "Player{" +
+                "name='" + name + '\'' +
+                ", cards=" + cards +
+                '}';
+    }
 }
